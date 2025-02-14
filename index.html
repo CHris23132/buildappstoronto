@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Build Apps Toronto</title>
+  <style>
+    /* Reset some basic elements */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ebe9ff 0%, #f8f9ff 100%);
+      color: #333;
+      line-height: 1.6;
+      padding: 1rem;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    section {
+      margin-bottom: 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    section img {
+      max-width: 300px;
+      margin-bottom: 1.5rem;
+    }
+
+    section h1,
+    section h2 {
+      margin-bottom: 1rem;
+      font-weight: 700;
+      color: #2c2c2c;
+    }
+
+    section p {
+      max-width: 700px;
+      margin: 0 auto 1.5rem auto;
+      line-height: 1.8;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: #5d5bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #4745c5;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      padding: 1rem 0;
+      border-top: 1px solid #ccc;
+      color: #777;
+    }
+
+    /* Responsive layout */
+    @media (min-width: 768px) {
+      section {
+        flex-direction: row;
+        text-align: left;
+      }
+      section img {
+        max-width: 400px;
+        margin: 0 2rem 0 0;
+      }
+      section .text-content {
+        flex: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <div class="logo">
+      <h2>Build Apps Toronto</h2>
+    </div>
+    <nav>
+      <a href="#">Pricing</a>
+      <a href="#">Blog</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Section 1 -->
+    <section id="apps-help">
+      <img src="images/iphonne.png" alt="Apps Help You Grow Image" />
+      <div class="text-content">
+        <h1>Apps Help You Grow</h1>
+        <p>
+          We provide high end development services and build and release custom modern iOS apps for business. 
+          If your company needs an app for a custom solution within your operations, 
+          improve a customer experience with a custom app.
+        </p>
+        <p>
+          Let's get started today!
+        </p>
+        <a href="#" class="cta-button">Book Call</a>
+        <p style="margin-top: 1rem;">
+          <strong>4.6/5</strong> Based on 311 reviews
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section id="apps-improve">
+      <img src="images/aiphone.png" alt="Apps Improve Business Image" />
+      <div class="text-content">
+        <h2>Apps Improve Business</h2>
+        <p>
+          Improve customer experience and don't let sales walk away. Collect sign-ups and information, 
+          onboard users, and automate processes within your business or store. 
+          An app can be a really great way to help. Give customers an extra way to get a personalized experience 
+          in relationship with your brand. You can also give them an option to shop with your favourite stores 
+          and get access to your premium features such as delivery options and more.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section id="ai-section">
+      <img src="images/ux.png" alt="Artificial Intelligence Image" />
+      <div class="text-content">
+        <h2>Artificial Intelligence?</h2>
+        <p>
+          AI or process automation? No problem. We've worked with all the latest APIs, 
+          whether that's integrating Gemini in API ChatGPT, or other cutting-edge solutions. 
+          We've done it before and we're on the leading edge of working with AI technology. 
+          Whatever your business needs and whatever processes could be improved with AI, 
+          we'll make sure to look into it and apply the cutting edge.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Build Apps Toronto. All rights reserved.</p>
+  </footer>
+</body>
+</html>
