@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Build Apps Toronto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* Reset some basic elements */
     * {
@@ -13,100 +16,185 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #ebe9ff 0%, #f8f9ff 100%);
-      color: #333;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(135deg, #f0f0ff 0%, #ffffff 100%);
+      color: #1a1a3f;
       line-height: 1.6;
-      padding: 1rem;
+      overflow-x: hidden;
     }
 
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 0;
+      padding: 2rem 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 90%;
+    }
+
+    .logo h2 {
+      font-size: 1.8rem;
+      color: #1a1a3f;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
     }
 
     nav a {
-      margin: 0 1rem;
       text-decoration: none;
-      color: #333;
+      color: #1a1a3f;
       font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #5d5bff;
     }
 
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 1rem;
+      width: 90%;
+      padding: 2rem 0;
     }
 
     section {
-      margin-bottom: 4rem;
+      margin-bottom: 8rem;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      text-align: center;
+      gap: 4rem;
+      position: relative;
     }
 
     section img {
-      max-width: 300px;
-      margin-bottom: 1.5rem;
+      max-width: 500px;
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      filter: drop-shadow(0 20px 40px rgba(93, 91, 255, 0.1));
     }
 
-    section h1,
-    section h2 {
-      margin-bottom: 1rem;
+    section h1 {
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #1a1a3f 0%, #5d5bff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       font-weight: 700;
-      color: #2c2c2c;
+    }
+
+    section h2 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      color: #1a1a3f;
+      font-weight: 700;
     }
 
     section p {
-      max-width: 700px;
-      margin: 0 auto 1.5rem auto;
+      font-size: 1.1rem;
       line-height: 1.8;
+      color: #4a4a6a;
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    .text-content {
+      flex: 1;
     }
 
     .cta-button {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background-color: #5d5bff;
+      display: inline-flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #5d5bff 0%, #4745c5 100%);
       color: #fff;
       text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 10px 20px rgba(93, 91, 255, 0.2);
     }
 
     .cta-button:hover {
-      background-color: #4745c5;
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px rgba(93, 91, 255, 0.3);
+    }
+
+    /* Decorative elements */
+    .bg-shape {
+      position: absolute;
+      z-index: -1;
+      opacity: 0.1;
+    }
+
+    .shape-1 {
+      top: -50px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, #5d5bff 0%, transparent 70%);
+      border-radius: 50%;
     }
 
     footer {
       text-align: center;
-      margin-top: 2rem;
-      padding: 1rem 0;
-      border-top: 1px solid #ccc;
-      color: #777;
+      padding: 3rem 0;
+      color: #4a4a6a;
+      font-size: 1rem;
+      border-top: 1px solid rgba(74, 74, 106, 0.1);
+      margin-top: 4rem;
     }
 
     /* Responsive layout */
-    @media (min-width: 768px) {
+    @media (max-width: 1024px) {
+      section h1 {
+        font-size: 3rem;
+      }
+      
+      section h2 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
       section {
-        flex-direction: row;
-        text-align: left;
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
       }
+
       section img {
-        max-width: 400px;
-        margin: 0 2rem 0 0;
+        max-width: 100%;
+        margin: 0;
+        order: -1;
       }
-      section .text-content {
-        flex: 1;
+
+      .text-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav {
+        display: none;
+      }
+
+      section h1 {
+        font-size: 2.5rem;
       }
     }
   </style>
 </head>
 <body>
-  <header class="container">
+  <header>
     <div class="logo">
       <h2>Build Apps Toronto</h2>
     </div>
@@ -121,7 +209,6 @@
   <main class="container">
     <!-- Section 1 -->
     <section id="apps-help">
-      <img src="images/iphonne.png" alt="Apps Help You Grow Image" />
       <div class="text-content">
         <h1>Apps Help You Grow</h1>
         <p>
@@ -134,11 +221,12 @@
         </p>
         <a href="#" class="cta-button">Book Call</a>
       </div>
+      <img src="images/iphonne.png" alt="Apps Help You Grow Image" />
+      <div class="bg-shape shape-1"></div>
     </section>
 
     <!-- Section 2 -->
     <section id="apps-improve">
-      <img src="images/aiphone.png" alt="Apps Improve Business Image" />
       <div class="text-content">
         <h2>Apps Improve Business</h2>
         <p>
@@ -149,11 +237,11 @@
           and get access to your premium features such as delivery options and more.
         </p>
       </div>
+      <img src="images/aiphone.png" alt="Apps Improve Business Image" />
     </section>
 
     <!-- Section 3 -->
     <section id="ai-section">
-      <img src="images/ux.png" alt="Artificial Intelligence Image" />
       <div class="text-content">
         <h2>Artificial Intelligence?</h2>
         <p>
@@ -164,6 +252,7 @@
           we'll make sure to look into it and apply the cutting edge.
         </p>
       </div>
+      <img src="images/ux.png" alt="Artificial Intelligence Image" />
     </section>
   </main>
 
