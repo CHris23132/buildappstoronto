@@ -153,6 +153,124 @@
       margin-top: 4rem;
     }
 
+    /* Releases Section Styles */
+    .releases-section {
+      padding: 4rem 0;
+      background: linear-gradient(135deg, #f8f9ff 0%, #f0f0ff 100%);
+      border-radius: 30px;
+      margin: 4rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-header h2 {
+      font-size: 3rem;
+      background: linear-gradient(135deg, #1a1a3f 0%, #5d5bff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .developer-name {
+      font-size: 1.2rem;
+      color: #4a4a6a;
+      font-weight: 500;
+    }
+
+    .app-releases {
+      display: flex;
+      gap: 2rem;
+      overflow-x: auto;
+      padding: 1rem;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .app-card {
+      flex: 0 0 auto;
+      width: 320px;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      scroll-snap-align: start;
+    }
+
+    .app-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(93, 91, 255, 0.15);
+    }
+
+    .app-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: contain;
+      background: #f8f9ff;
+      padding: 1rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .app-info {
+      padding: 1.5rem;
+    }
+
+    .app-info h3 {
+      font-size: 1.4rem;
+      color: #1a1a3f;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .app-info p {
+      color: #4a4a6a;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .app-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+
+    .rating {
+      color: #ffd700;
+      font-weight: 600;
+    }
+
+    .category, .platform, .price {
+      color: #5d5bff;
+      background: rgba(93, 91, 255, 0.1);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    /* Responsive adjustments for releases section */
+    @media (max-width: 768px) {
+      .releases-section {
+        padding: 2rem 0;
+        margin: 2rem 0;
+      }
+
+      .section-header h2 {
+        font-size: 2rem;
+      }
+
+      .app-card {
+        width: 280px;
+      }
+
+      .app-info {
+        padding: 1rem;
+      }
+    }
+
     /* Responsive layout */
     @media (max-width: 1024px) {
       section h1 {
@@ -223,6 +341,52 @@
       </div>
       <img src="images/iphonne.png" alt="Apps Help You Grow Image" />
       <div class="bg-shape shape-1"></div>
+    </section>
+
+    <!-- Releases Section -->
+    <section id="releases" class="releases-section">
+      <div class="section-header">
+        <h2>Latest Releases</h2>
+        <p class="developer-name">by Christopher Walsh</p>
+      </div>
+      
+      <div class="app-releases">
+        <div class="app-card">
+          <img src="images/margaretimage.png" alt="Margaret App" />
+          <div class="app-info">
+            <h3>Margaret</h3>
+            <p>Your very own secretary</p>
+            <div class="app-meta">
+              <span class="rating">★★★★★</span>
+              <span class="category">Productivity</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <img src="images/macosimage.png" alt="Make Apps" />
+          <div class="app-info">
+            <h3>Make Apps</h3>
+            <p>Full app planner and assistant</p>
+            <div class="app-meta">
+              <span class="price">$179.00</span>
+              <span class="category">Education</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <img src="images/arimage.png" alt="AR Experience" />
+          <div class="app-info">
+            <h3>AR Experience</h3>
+            <p>The intelligent system</p>
+            <div class="app-meta">
+              <span class="category">Technology</span>
+              <span class="platform">iOS</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Section 2 -->
