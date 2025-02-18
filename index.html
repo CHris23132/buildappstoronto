@@ -15,6 +15,54 @@
       box-sizing: border-box;
     }
 
+    /* Top Banner */
+    .top-banner {
+      background: linear-gradient(135deg, #5d5bff 0%, #4745c5 100%);
+      color: white;
+      text-align: center;
+      padding: 0.75rem 1rem;
+      font-weight: 500;
+      position: relative;
+      overflow: hidden;
+      font-size: 1.1rem;
+      animation: bannerSlide 0.5s ease-out;
+    }
+
+    .top-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transform: translateX(-100%);
+      animation: shimmer 3s infinite;
+    }
+
+    @keyframes bannerSlide {
+      from {
+        transform: translateY(-100%);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes shimmer {
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .top-banner {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+        line-height: 1.4;
+      }
+    }
+
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background: linear-gradient(135deg, #f0f0ff 0%, #ffffff 100%);
@@ -312,6 +360,10 @@
   </style>
 </head>
 <body>
+  <div class="top-banner">
+    Look out Toronto! New firm in town – Cutting-Edge Apple Software Development – Build Better, Faster, Smarter
+  </div>
+
   <header>
     <div class="logo">
       <h2>Build Apps Toronto</h2>
