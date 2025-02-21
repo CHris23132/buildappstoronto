@@ -374,6 +374,55 @@
         font-size: 2.5rem;
       }
     }
+
+    .consultation-section {
+      padding: 6rem 0;
+      background: linear-gradient(135deg, #f8f9ff 0%, #f0f0ff 100%);
+      border-radius: 30px;
+      margin: 8rem 0;
+    }
+
+    .consultation-container {
+      display: flex;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 90%;
+    }
+
+    .consultation-content {
+      flex: 1;
+    }
+
+    .consultation-calendar {
+      flex: 1;
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(93, 91, 255, 0.1);
+    }
+
+    .consultation-eyebrow {
+      color: #5d5bff;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 1024px) {
+      .consultation-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .consultation-content {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+    }
   </style>
 </head>
 <body>
@@ -472,6 +521,31 @@
         </p>
       </div>
       <img src="images/aiphone.png" alt="Apps Improve Business Image" />
+    </section>
+
+    <!-- Consultation Section -->
+    <section class="consultation-section">
+      <div class="consultation-container">
+        <div class="consultation-content">
+          <div class="consultation-eyebrow">Free Consultation</div>
+          <h2>Get Your Free App Development Roadmap</h2>
+          <p class="hero-subheading">
+            Book a no-obligation consultation and discover how to bring your app idea to life
+          </p>
+          <p>
+            During this free session, we'll discuss your vision, outline the perfect tech stack, 
+            and provide expert insights on making your project a success. Get a clear roadmap 
+            for your app's development journey, whether you choose to work with us or not.
+          </p>
+        </div>
+        
+        <div class="consultation-calendar">
+          <!-- Calendly inline widget begin -->
+          <div class="calendly-inline-widget" data-url="https://calendly.com/chris-christopher-walsh-apps/free-app-product-consultation?primary_color=d05aff" style="min-width:320px;height:630px;"></div>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+          <!-- Calendly inline widget end -->
+        </div>
+      </div>
     </section>
 
     <!-- Section 3 -->
