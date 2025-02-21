@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - Toronto Innovation Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(135deg, #f0f0ff 0%, #ffffff 100%);
+      color: #1a1a3f;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 90%;
+    }
+
+    .logo h2 {
+      font-size: 1.8rem;
+      color: #1a1a3f;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .logo .subtitle {
+      font-size: 0.9rem;
+      color: #4a4a6a;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1a1a3f;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #5d5bff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      width: 90%;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 6rem;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #1a1a3f 0%, #5d5bff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      color: #4a4a6a;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .specialties {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      margin-bottom: 6rem;
+    }
+
+    @media (max-width: 1024px) {
+      .specialties {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .specialties {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .specialty-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(93, 91, 255, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .specialty-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .specialty-card h3 {
+      font-size: 1.5rem;
+      color: #1a1a3f;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .specialty-card p {
+      color: #4a4a6a;
+      margin-bottom: 1.5rem;
+    }
+
+    .why-us {
+      background: linear-gradient(135deg, #f8f9ff 0%, #f0f0ff 100%);
+      padding: 4rem 0;
+      border-radius: 30px;
+      margin: 4rem 0;
+    }
+
+    .why-us-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .why-us h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #1a1a3f;
+    }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      text-align: left;
+    }
+
+    .benefit {
+      padding: 1.5rem;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(93, 91, 255, 0.1);
+    }
+
+    .benefit h3 {
+      font-size: 1.3rem;
+      color: #1a1a3f;
+      margin-bottom: 1rem;
+    }
+
+    .benefit p {
+      color: #4a4a6a;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h2>Toronto Innovation Lab</h2>
+      <div class="subtitle">by Christopher John Walsh</div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#">Pricing</a>
+      <a href="#">Blog</a>
+      <a href="about.html">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Crafting Tomorrow's Technology Today</h1>
+      <p>We're not just developers – we're innovators, problem-solvers, and tech visionaries pushing the boundaries of what's possible in the digital realm.</p>
+    </section>
+
+    <section class="specialties">
+      <div class="specialty-card">
+        <h3>App & Software Development</h3>
+        <p>From sleek mobile applications to robust web platforms, we craft digital solutions that set new standards. Our expertise spans iOS, Android, and cutting-edge web technologies, all infused with AI-driven capabilities that make your software truly intelligent.</p>
+      </div>
+
+      <div class="specialty-card">
+        <h3>Product & Hardware Design</h3>
+        <p>Transform ideas into tangible innovations. Our comprehensive approach covers everything from initial 3D modeling to final manufacturing support, ensuring your hardware products are both beautiful and functional.</p>
+      </div>
+
+      <div class="specialty-card">
+        <h3>AI & Machine Learning</h3>
+        <p>Harness the power of artificial intelligence with our adaptive learning systems. We develop smart applications that evolve with your business, providing increasingly valuable insights and capabilities over time.</p>
+      </div>
+
+      <div class="specialty-card">
+        <h3>Augmented Reality & Interactive Tech</h3>
+        <p>Step into the future with immersive AR experiences that blur the line between digital and physical. We create interactive solutions that engage, educate, and amaze your audience.</p>
+      </div>
+
+      <div class="specialty-card">
+        <h3>IoT & Embedded Systems</h3>
+        <p>Connect the physical world to the digital realm with our smart device solutions. From sensors to full-scale connected ecosystems, we build IoT solutions that make your environment smarter and more responsive.</p>
+      </div>
+
+      <div class="specialty-card">
+        <h3>Cloud & Infrastructure</h3>
+        <p>Build scalable, secure, and resilient systems with our cloud expertise. We architect and implement robust infrastructure solutions that power your applications and ensure seamless operations across all platforms and devices.</p>
+      </div>
+    </section>
+
+    <section class="why-us">
+      <div class="why-us-content">
+        <h2>Why Companies Choose Us</h2>
+        <div class="benefits">
+          <div class="benefit">
+            <h3>One Team, Full Execution</h3>
+            <p>Experience seamless development with our integrated team. No outsourcing, no communication gaps – just smooth, efficient execution from concept to completion.</p>
+          </div>
+
+          <div class="benefit">
+            <h3>Rapid Development Cycle</h3>
+            <p>We've perfected the art of efficient development, taking your product from prototype to launch with speed and precision, without compromising on quality.</p>
+          </div>
+
+          <div class="benefit">
+            <h3>Unique Technical Expertise</h3>
+            <p>Our rare combination of software and hardware expertise means we can tackle complex challenges that others can't, delivering truly integrated solutions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Toronto Innovation Lab. All rights reserved.</p>
+  </footer>
+</body>
+</html>
