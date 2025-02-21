@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Toronto Innovation Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(135deg, #f0f0ff 0%, #ffffff 100%);
+      color: #1a1a3f;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 90%;
+    }
+
+    .logo h2 {
+      font-size: 1.8rem;
+      color: #1a1a3f;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .logo .subtitle {
+      font-size: 0.9rem;
+      color: #4a4a6a;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1a1a3f;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #5d5bff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      width: 90%;
+    }
+
+    .hero-section {
+      display: flex;
+      gap: 4rem;
+      align-items: flex-start;
+      margin-bottom: 6rem;
+    }
+
+    .hero-content {
+      flex: 1;
+      padding-top: 2rem;
+    }
+
+    .hero-calendar {
+      flex: 1;
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(93, 91, 255, 0.1);
+    }
+
+    .hero-eyebrow {
+      color: #5d5bff;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #1a1a3f 0%, #5d5bff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: #1a1a3f;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      color: #4a4a6a;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .benefits-section {
+      padding: 6rem 0;
+      background: linear-gradient(135deg, #f8f9ff 0%, #f0f0ff 100%);
+      border-radius: 30px;
+      margin-top: 4rem;
+    }
+
+    .benefits-list {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .benefit-item {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(93, 91, 255, 0.1);
+      flex: 1;
+      max-width: 300px;
+      text-align: left;
+    }
+
+    .benefit-item h3 {
+      color: #1a1a3f;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .benefit-item p {
+      color: #4a4a6a;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-section {
+        flex-direction: column;
+        gap: 3rem;
+      }
+
+      .hero-title {
+        font-size: 3rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.3rem;
+      }
+
+      .benefits-list {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .benefit-item {
+        max-width: 100%;
+      }
+
+      nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h2>Toronto Innovation Lab</h2>
+      <div class="subtitle">by Christopher John Walsh</div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="hero-eyebrow">Book Your Free Consultation</div>
+        <h1 class="hero-title">Transform Your App Vision Into Reality</h1>
+        <h2 class="hero-subtitle">Get Expert Guidance on Your Next Digital Innovation</h2>
+        <p class="hero-description">
+          Ready to bring your app idea to life? Schedule a free consultation and get a comprehensive technical roadmap. 
+          We'll discuss your vision, outline the perfect tech stack, and provide expert insights on making your 
+          project a success. No commitment required – just pure value and expert guidance.
+        </p>
+      </div>
+      
+      <div class="hero-calendar">
+        <!-- Calendly inline widget begin -->
+        <div class="calendly-inline-widget" data-url="https://calendly.com/chris-christopher-walsh-apps/free-app-product-consultation?primary_color=d05aff" style="min-width:320px;height:630px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        <!-- Calendly inline widget end -->
+      </div>
+    </section>
+
+    <section class="benefits-section">
+      <div class="benefits-list">
+        <div class="benefit-item">
+          <h3>Free Technical Consultation</h3>
+          <p>Get a comprehensive technical roadmap and learn about the latest technologies that could benefit your project.</p>
+        </div>
+        <div class="benefit-item">
+          <h3>Expert Guidance</h3>
+          <p>Receive professional insights on architecture, technology stack, and development approach tailored to your needs.</p>
+        </div>
+        <div class="benefit-item">
+          <h3>No Commitment Required</h3>
+          <p>Learn exactly what you need to build your app, whether you choose to work with us or not.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Toronto Innovation Lab. All rights reserved.</p>
+  </footer>
+</body>
+</html> 
