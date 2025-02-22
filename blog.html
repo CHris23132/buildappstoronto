@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Expert insights on app development, AI integration, and digital innovation from Toronto's leading app development lab." />
+  <title>App Development Blog - Toronto Innovation Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(135deg, #f0f0ff 0%, #ffffff 100%);
+      color: #1a1a3f;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 90%;
+    }
+
+    .logo h2 {
+      font-size: 1.8rem;
+      color: #1a1a3f;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .logo .subtitle {
+      font-size: 0.9rem;
+      color: #4a4a6a;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1a1a3f;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #5d5bff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      width: 90%;
+    }
+
+    .blog-hero {
+      text-align: center;
+      margin-bottom: 6rem;
+    }
+
+    .blog-hero h1 {
+      font-size: 3.5rem;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #1a1a3f 0%, #5d5bff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .blog-hero p {
+      font-size: 1.3rem;
+      color: #4a4a6a;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .blog-categories {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .category-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(93, 91, 255, 0.1);
+      transition: transform 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .category-card h3 {
+      font-size: 1.5rem;
+      color: #1a1a3f;
+      margin-bottom: 1rem;
+    }
+
+    .category-card p {
+      color: #4a4a6a;
+      margin-bottom: 1rem;
+    }
+
+    .article-count {
+      color: #5d5bff;
+      font-weight: 600;
+    }
+
+    .featured-posts {
+      margin-top: 6rem;
+    }
+
+    .featured-posts h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #1a1a3f;
+    }
+
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+    }
+
+    .post-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(93, 91, 255, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .post-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .post-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .post-content {
+      padding: 2rem;
+    }
+
+    .post-category {
+      color: #5d5bff;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+
+    .post-title {
+      font-size: 1.5rem;
+      color: #1a1a3f;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .post-excerpt {
+      color: #4a4a6a;
+      margin-bottom: 1.5rem;
+    }
+
+    .read-more {
+      color: #5d5bff;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .newsletter-section {
+      margin-top: 8rem;
+      background: linear-gradient(135deg, #f8f9ff 0%, #f0f0ff 100%);
+      padding: 4rem;
+      border-radius: 30px;
+      text-align: center;
+    }
+
+    .newsletter-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #1a1a3f;
+    }
+
+    .newsletter-section p {
+      color: #4a4a6a;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 1rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      padding: 1rem;
+      border: 2px solid rgba(93, 91, 255, 0.1);
+      border-radius: 12px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    .newsletter-button {
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #5d5bff 0%, #4745c5 100%);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .newsletter-button:hover {
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 1024px) {
+      .blog-categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .posts-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .blog-hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .blog-categories {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 0;
+      color: #4a4a6a;
+      font-size: 1rem;
+      border-top: 1px solid rgba(74, 74, 106, 0.1);
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h2>Toronto Innovation Lab</h2>
+      <div class="subtitle">by Christopher John Walsh</div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="blog-hero">
+      <h1>App Development Insights</h1>
+      <p>Expert knowledge on building successful apps, implementing AI, and creating innovative digital experiences.</p>
+    </section>
+
+    <section class="blog-categories">
+      <a href="#app-development" class="category-card">
+        <h3>App Development</h3>
+        <p>Best practices, frameworks, and strategies for building successful mobile and web applications.</p>
+        <span class="article-count">Coming Soon</span>
+      </a>
+
+      <a href="#ai-machine-learning" class="category-card">
+        <h3>AI & Machine Learning</h3>
+        <p>Implementing AI solutions, ChatGPT integration, and automation in modern applications.</p>
+        <span class="article-count">Coming Soon</span>
+      </a>
+
+      <a href="#product-design" class="category-card">
+        <h3>Product Design</h3>
+        <p>UX/UI design principles, user research, and creating engaging digital experiences.</p>
+        <span class="article-count">Coming Soon</span>
+      </a>
+
+      <a href="#business-strategy" class="category-card">
+        <h3>Business Strategy</h3>
+        <p>Monetization strategies, market analysis, and growing your app business.</p>
+        <span class="article-count">Coming Soon</span>
+      </a>
+
+      <a href="#tech-trends" class="category-card">
+        <h3>Tech Trends</h3>
+        <p>Latest developments in technology, emerging platforms, and future predictions.</p>
+        <span class="article-count">Coming Soon</span>
+      </a>
+
+      <a href="#case-studies" class="category-card">
+        <h3>Case Studies</h3>
+        <p>Real-world examples, success stories, and lessons learned from our projects.</p>
+        <span class="article-count">Coming Soon</span>
+      </a>
+    </section>
+
+    <section class="featured-posts">
+      <h2>Featured Articles</h2>
+      <div class="posts-grid">
+        <!-- Placeholder for future articles -->
+        <article class="post-card">
+          <img src="images/placeholder1.jpg" alt="AI Integration" class="post-image">
+          <div class="post-content">
+            <div class="post-category">AI & Machine Learning</div>
+            <h3 class="post-title">Coming Soon: Integrating ChatGPT into Your App</h3>
+            <p class="post-excerpt">A comprehensive guide on implementing ChatGPT API in your applications, best practices, and real-world examples.</p>
+            <a href="#" class="read-more">Coming Soon →</a>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <img src="images/placeholder2.jpg" alt="App Development" class="post-image">
+          <div class="post-content">
+            <div class="post-category">App Development</div>
+            <h3 class="post-title">Coming Soon: Building Scalable Apps</h3>
+            <p class="post-excerpt">Learn the architecture patterns and practices that ensure your app can grow with your user base.</p>
+            <a href="#" class="read-more">Coming Soon →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="newsletter-section">
+      <h2>Stay Updated</h2>
+      <p>Subscribe to our newsletter for the latest insights on app development, AI integration, and digital innovation.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Enter your email" class="newsletter-input" required>
+        <button type="submit" class="newsletter-button">Subscribe</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Toronto Innovation Lab. All rights reserved.</p>
+  </footer>
+</body>
+</html> 
