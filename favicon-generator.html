@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favicon Generator</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      text-align: center;
+    }
+    .canvas-container {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    canvas {
+      border: 1px solid #ccc;
+    }
+    .instructions {
+      background: #f5f5f5;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    .button-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+    button {
+      padding: 10px 20px;
+      background: #5d5bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #4745c5;
+    }
+  </style>
+</head>
+<body>
+  <h1>Favicon Generator</h1>
+  
+  <div class="instructions">
+    <p>This tool will create a favicon from your headshot image. Follow these steps:</p>
+    <ol>
+      <li>The image will be loaded and displayed below</li>
+      <li>Click "Generate Favicon" to create the favicon</li>
+      <li>Right-click on the generated favicon and select "Save Image As..."</li>
+      <li>Save it as "favicon.ico" in your images folder</li>
+    </ol>
+  </div>
+  
+  <div class="canvas-container">
+    <canvas id="sourceCanvas" width="300" height="300"></canvas>
+    <canvas id="faviconCanvas" width="64" height="64"></canvas>
+  </div>
+  
+  <div class="button-container">
+    <button id="generateBtn">Generate Favicon</button>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const sourceCanvas = document.getElementById('sourceCanvas');
+      const faviconCanvas = document.getElementById('faviconCanvas');
+      const sourceCtx = sourceCanvas.getContext('2d');
+      const faviconCtx = faviconCanvas.getContext('2d');
+      const generateBtn = document.getElementById('generateBtn');
+      
+      // Load the headshot image
+      const img = new Image();
+      img.crossOrigin = "Anonymous";
+      img.src = 'images/headshot-despill-2.png';
+      
+      img.onload = function() {
+        // Calculate dimensions to maintain aspect ratio
+        const aspectRatio = img.width / img.height;
+        let drawWidth = sourceCanvas.width;
+        let drawHeight = sourceCanvas.width / aspectRatio;
+        
+        if (drawHeight > sourceCanvas.height) {
+          drawHeight = sourceCanvas.height;
+          drawWidth = sourceCanvas.height * aspectRatio;
+        }
+        
+        // Center the image
+        const offsetX = (sourceCanvas.width - drawWidth) / 2;
+        const offsetY = (sourceCanvas.height - drawHeight) / 2;
+        
+        // Draw the image on the source canvas
+        sourceCtx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+      };
+      
+      // Generate favicon when button is clicked
+      generateBtn.addEventListener('click', function() {
+        // Draw the source canvas onto the favicon canvas (resized)
+        faviconCtx.drawImage(sourceCanvas, 0, 0, sourceCanvas.width, sourceCanvas.height, 0, 0, faviconCanvas.width, faviconCanvas.height);
+        
+        // Convert the favicon canvas to a data URL
+        const dataUrl = faviconCanvas.toDataURL('image/png');
+        
+        // Open the favicon in a new tab for download
+        const newTab = window.open();
+        newTab.document.write('<img src="' + dataUrl + '" alt="Favicon"><p>Right-click on the image and select "Save Image As..." to save as favicon.ico in your images folder</p>');
+      });
+    });
+  </script>
+</body>
+</html> 
