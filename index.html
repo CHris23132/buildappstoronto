@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Toronto Innovation Lab</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +14,16 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Improved mobile handling */
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
     }
 
     /* Top Banner */
@@ -70,6 +80,8 @@
       color: #1a1a3f;
       line-height: 1.6;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     header {
@@ -144,7 +156,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      text-fill-color: transparent;
+      color: transparent; /* Fallback */
       font-weight: 700;
     }
 
@@ -239,6 +251,8 @@
       background: linear-gradient(135deg, #1a1a3f 0%, #5d5bff 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent; /* Fallback */
       margin-bottom: 0.5rem;
     }
 
@@ -255,6 +269,12 @@
       padding: 1rem;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
+    }
+    
+    .app-releases::-webkit-scrollbar {
+      display: none; /* Chrome, Safari and Opera */
     }
 
     .app-card {
@@ -266,6 +286,8 @@
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       scroll-snap-align: start;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
     }
 
     .app-card:hover {
@@ -355,18 +377,27 @@
         flex-direction: column;
         text-align: center;
         gap: 2rem;
+        padding: 0 1rem;
+        margin-bottom: 4rem;
       }
 
       section img {
         max-width: 100%;
-        margin: 0;
+        margin: 0 auto;
         order: -1;
+      }
+
+      .hero-subheading, section p {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 0.5rem;
       }
 
       .text-content {
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 100%;
       }
 
       nav {
@@ -375,6 +406,36 @@
 
       section h1 {
         font-size: 2.5rem;
+        padding: 0 0.5rem;
+      }
+
+      .app-releases {
+        gap: 1rem;
+      }
+
+      .consultation-container {
+        flex-direction: column;
+        padding: 0 1rem;
+      }
+
+      .consultation-calendar {
+        width: 100%;
+      }
+    }
+
+    /* Chrome-specific fixes */
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+      .app-releases {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-scroll-snap-type: x mandatory;
+        scroll-snap-type: x mandatory;
+      }
+      
+      .app-card {
+        -webkit-scroll-snap-align: start;
+        scroll-snap-align: start;
       }
     }
 
