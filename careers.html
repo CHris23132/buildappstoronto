@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Careers - Toronto Innovation Lab</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(135deg, #f0f0ff 0%, #ffffff 100%);
+      color: #1a1a3f;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 90%;
+    }
+
+    .logo h2 {
+      font-size: 1.8rem;
+      color: #1a1a3f;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .logo .subtitle {
+      font-size: 0.9rem;
+      color: #4a4a6a;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1a1a3f;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #5d5bff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      width: 90%;
+    }
+
+    .careers-hero {
+      text-align: center;
+      margin-bottom: 6rem;
+    }
+
+    .careers-hero h1 {
+      font-size: 3.5rem;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #1a1a3f 0%, #5d5bff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent; /* Fallback */
+    }
+
+    .careers-hero p {
+      font-size: 1.3rem;
+      color: #4a4a6a;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .careers-content {
+      margin-bottom: 6rem;
+    }
+
+    .careers-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: #1a1a3f;
+    }
+
+    .careers-content p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #4a4a6a;
+      margin-bottom: 1.5rem;
+    }
+
+    .values-section {
+      background: linear-gradient(135deg, #f8f9ff 0%, #f0f0ff 100%);
+      padding: 4rem;
+      border-radius: 30px;
+      margin: 4rem 0;
+    }
+
+    .values-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #1a1a3f;
+      text-align: center;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .value-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(93, 91, 255, 0.1);
+    }
+
+    .value-card h3 {
+      font-size: 1.5rem;
+      color: #1a1a3f;
+      margin-bottom: 1rem;
+    }
+
+    .value-card p {
+      color: #4a4a6a;
+      margin-bottom: 0;
+    }
+
+    .job-section {
+      margin: 6rem 0;
+    }
+
+    .job-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #1a1a3f;
+    }
+
+    .job-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(93, 91, 255, 0.1);
+      margin-bottom: 2rem;
+    }
+
+    .job-title {
+      font-size: 1.8rem;
+      color: #1a1a3f;
+      margin-bottom: 1rem;
+    }
+
+    .job-meta {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .job-type, .job-location {
+      color: #5d5bff;
+      background: rgba(93, 91, 255, 0.1);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    .job-description {
+      color: #4a4a6a;
+      margin-bottom: 1.5rem;
+    }
+
+    .job-requirements {
+      margin-bottom: 2rem;
+    }
+
+    .job-requirements h3 {
+      font-size: 1.3rem;
+      color: #1a1a3f;
+      margin-bottom: 1rem;
+    }
+
+    .job-requirements ul {
+      color: #4a4a6a;
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .job-requirements li {
+      margin-bottom: 0.5rem;
+    }
+
+    .apply-section {
+      text-align: center;
+      padding: 4rem;
+      background: linear-gradient(135deg, #f8f9ff 0%, #f0f0ff 100%);
+      border-radius: 30px;
+    }
+
+    .apply-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: #1a1a3f;
+    }
+
+    .apply-section p {
+      font-size: 1.3rem;
+      color: #4a4a6a;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .apply-button {
+      display: inline-flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #5d5bff 0%, #4745c5 100%);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 10px 20px rgba(93, 91, 255, 0.2);
+    }
+
+    .apply-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px rgba(93, 91, 255, 0.3);
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 0;
+      color: #4a4a6a;
+      font-size: 1rem;
+      border-top: 1px solid rgba(74, 74, 106, 0.1);
+      margin-top: 4rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .careers-hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .job-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .job-type, .job-location {
+        display: inline-block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h2>Toronto Innovation Lab</h2>
+      <div class="subtitle">by Christopher John Walsh</div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="careers-hero">
+      <h1>Join Our Innovation Team</h1>
+      <p>Be part of a dynamic team building the next generation of digital products and experiences.</p>
+    </section>
+
+    <section class="careers-content">
+      <h2>Life at Toronto Innovation Lab</h2>
+      <p>
+        At Toronto Innovation Lab, we're not just building apps – we're crafting experiences that transform how people interact with technology. Our team consists of passionate developers, designers, and strategists who thrive on solving complex problems and pushing the boundaries of what's possible.
+      </p>
+      <p>
+        Working with us means being part of a collaborative environment where ideas flow freely, innovation is encouraged, and personal growth is prioritized. We believe that the best products come from teams that are empowered, respected, and challenged to reach their full potential.
+      </p>
+      <p>
+        Whether you're an experienced developer or just starting your career, Toronto Innovation Lab offers a supportive culture where you can expand your skills, take on meaningful projects, and make a real difference in the digital landscape.
+      </p>
+    </section>
+
+    <section class="values-section">
+      <h2>Our Values</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <h3>Innovation First</h3>
+          <p>We embrace new technologies and methodologies, constantly exploring better ways to solve problems and create exceptional digital experiences.</p>
+        </div>
+        <div class="value-card">
+          <h3>Quality Craftsmanship</h3>
+          <p>We take pride in our work, paying attention to every detail and ensuring our products are built to the highest standards of quality and performance.</p>
+        </div>
+        <div class="value-card">
+          <h3>User-Centered Design</h3>
+          <p>We put users at the heart of everything we build, creating intuitive, accessible, and delightful experiences that solve real problems.</p>
+        </div>
+        <div class="value-card">
+          <h3>Continuous Learning</h3>
+          <p>We foster a culture of growth and development, encouraging team members to expand their skills and stay at the forefront of technology.</p>
+        </div>
+        <div class="value-card">
+          <h3>Collaborative Spirit</h3>
+          <p>We believe the best solutions come from diverse perspectives working together, sharing knowledge and supporting each other.</p>
+        </div>
+        <div class="value-card">
+          <h3>Work-Life Balance</h3>
+          <p>We recognize that creativity thrives when people are well-rested and fulfilled, and we promote healthy boundaries between work and personal life.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="job-section">
+      <h2>Open Positions</h2>
+      
+      <div class="job-card">
+        <h3 class="job-title">Junior JavaScript Developer</h3>
+        <div class="job-meta">
+          <span class="job-type">Full-time</span>
+          <span class="job-location">Toronto / Remote</span>
+        </div>
+        <div class="job-description">
+          <p>We're looking for a talented Junior JavaScript Developer to join our innovative team at Toronto Innovation Lab. The ideal candidate will have experience developing full applications across various JavaScript frameworks and a passion for creating elegant, efficient code.</p>
+        </div>
+        <div class="job-requirements">
+          <h3>Requirements:</h3>
+          <ul>
+            <li>Experience developing full applications in React</li>
+            <li>Strong knowledge of vanilla JavaScript/TypeScript</li>
+            <li>Experience with Electron for desktop application development</li>
+            <li>Solid background in HTML, CSS, and responsive web development</li>
+            <li>Understanding of web performance optimization techniques</li>
+            <li>Ability to write clean, maintainable, and well-documented code</li>
+            <li>Good problem-solving skills and attention to detail</li>
+            <li>Experience with version control systems (Git)</li>
+            <li>Excellent communication skills and ability to work in a team</li>
+          </ul>
+          <h3>Bonus Skills:</h3>
+          <ul>
+            <li>Experience with mobile app development frameworks (React Native, Flutter)</li>
+            <li>Knowledge of backend technologies (Node.js, Express)</li>
+            <li>Familiarity with CI/CD pipelines</li>
+            <li>Understanding of UI/UX principles</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="apply-section">
+      <h2>Join Our Team</h2>
+      <p>Interested in one of our open positions? We'd love to hear from you. Send your CV and a brief introduction to get the conversation started.</p>
+      <a href="mailto:chris@christopher-walsh-apps.com" class="apply-button">Apply Now</a>
+      <p style="margin-top: 2rem; font-size: 1rem;">To apply for a job, please send your CV to chris@christopher-walsh-apps.com</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Toronto Innovation Lab. All rights reserved.</p>
+  </footer>
+</body>
+</html> 
