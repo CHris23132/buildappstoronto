@@ -314,6 +314,25 @@
       <a href="careers.html">Careers</a>
       <a href="contact.html">Contact</a>
     </nav>
+    
+    <!-- Mobile Menu Toggle -->
+    <div class="mobile-menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    
+    <!-- Overlay -->
+    <div class="overlay"></div>
   </header>
 
   <main class="container">
@@ -412,5 +431,26 @@
   <footer>
     <p>&copy; 2025 Toronto Innovation Lab. All rights reserved.</p>
   </footer>
+  
+  <!-- JavaScript for Mobile Menu -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.querySelector('.mobile-menu-toggle');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const overlay = document.querySelector('.overlay');
+      
+      menuToggle.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+        overlay.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+      });
+      
+      overlay.addEventListener('click', function() {
+        mobileMenu.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      });
+    });
+  </script>
 </body>
 </html> 
