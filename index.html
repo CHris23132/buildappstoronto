@@ -263,31 +263,38 @@
     }
 
     .app-releases {
+      position: relative;
+      overflow: hidden;
+      padding: 1rem;
+    }
+
+    .app-track {
       display: flex;
       gap: 2rem;
-      overflow-x: auto;
-      padding: 1rem;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE and Edge */
+      width: fit-content;
+      animation: slideshow 30s linear infinite;
     }
-    
-    .app-releases::-webkit-scrollbar {
-      display: none; /* Chrome, Safari and Opera */
+
+    .app-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes slideshow {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-340px * 3));
+      }
     }
 
     .app-card {
-      flex: 0 0 auto;
-      width: 320px;
+      flex: 0 0 320px;
       background: white;
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      scroll-snap-align: start;
-      -webkit-transform: translateZ(0);
-      transform: translateZ(0);
+      box-shadow: 0 15px 30px rgba(93, 91, 255, 0.1);
+      transition: transform 0.3s ease;
     }
 
     .app-card:hover {
@@ -353,11 +360,20 @@
       }
 
       .app-card {
-        width: 280px;
+        flex: 0 0 280px;
       }
 
       .app-info {
         padding: 1rem;
+      }
+
+      @keyframes slideshow {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(calc(-300px * 3));
+        }
       }
     }
 
@@ -368,7 +384,7 @@
       }
       
       section h2 {
-        font-size: 2rem;
+        font-width: 2rem;
       }
     }
 
@@ -413,23 +429,14 @@
         padding: 0 0.5rem;
       }
 
-      .app-releases {
-        gap: 1rem;
-      }
-
-      .consultation-container {
-        flex-direction: column;
-        padding: 0 1rem;
-      }
-
-      .consultation-calendar {
-        width: 100%;
+      .app-track:hover {
+        animation-play-state: paused;
       }
     }
 
     /* Chrome-specific fixes */
     @media screen and (-webkit-min-device-pixel-ratio:0) {
-      .app-releases {
+      .app-track {
         display: -webkit-box;
         display: -webkit-flex;
         display: flex;
@@ -701,38 +708,76 @@
       </div>
       
       <div class="app-releases">
-        <div class="app-card">
-          <img src="images/margaretimage.png" alt="Margaret App" />
-          <div class="app-info">
-            <h3>Margaret</h3>
-            <p>Your very own secretary</p>
-            <div class="app-meta">
-              <span class="rating">★★★★★</span>
-              <span class="category">Productivity</span>
+        <div class="app-track">
+          <div class="app-card">
+            <img src="images/margaretimage.png" alt="Margaret App" />
+            <div class="app-info">
+              <h3>Margaret</h3>
+              <p>Your very own secretary</p>
+              <div class="app-meta">
+                <span class="rating">★★★★★</span>
+                <span class="category">Productivity</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="app-card">
-          <img src="images/macosimage.png" alt="Make Apps" />
-          <div class="app-info">
-            <h3>Make Apps</h3>
-            <p>Full app planner and assistant</p>
-            <div class="app-meta">
-              <span class="price">$179.00</span>
-              <span class="category">Education</span>
+          <div class="app-card">
+            <img src="images/macosimage.png" alt="Make Apps" />
+            <div class="app-info">
+              <h3>Make Apps</h3>
+              <p>Full app planner and assistant</p>
+              <div class="app-meta">
+                <span class="price">$179.00</span>
+                <span class="category">Education</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="app-card">
-          <img src="images/arimage.png" alt="AR Experience" />
-          <div class="app-info">
-            <h3>AR Experience</h3>
-            <p>The intelligent system</p>
-            <div class="app-meta">
-              <span class="category">Technology</span>
-              <span class="platform">iOS</span>
+          <div class="app-card">
+            <img src="images/arimage.png" alt="AR Experience" />
+            <div class="app-info">
+              <h3>AR Experience</h3>
+              <p>The intelligent system</p>
+              <div class="app-meta">
+                <span class="category">Technology</span>
+                <span class="platform">iOS</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <img src="images/margaretimage.png" alt="Margaret App" />
+            <div class="app-info">
+              <h3>Margaret</h3>
+              <p>Your very own secretary</p>
+              <div class="app-meta">
+                <span class="rating">★★★★★</span>
+                <span class="category">Productivity</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <img src="images/macosimage.png" alt="Make Apps" />
+            <div class="app-info">
+              <h3>Make Apps</h3>
+              <p>Full app planner and assistant</p>
+              <div class="app-meta">
+                <span class="price">$179.00</span>
+                <span class="category">Education</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <img src="images/arimage.png" alt="AR Experience" />
+            <div class="app-info">
+              <h3>AR Experience</h3>
+              <p>The intelligent system</p>
+              <div class="app-meta">
+                <span class="category">Technology</span>
+                <span class="platform">iOS</span>
+              </div>
             </div>
           </div>
         </div>
@@ -762,35 +807,70 @@
       </div>
       
       <div class="app-releases">
-        <div class="app-card">
-          <img src="images/Walapy-news-app-store.png" alt="Walapy News App" />
-          <div class="app-info">
-            <h3>Walapy News</h3>
-            <p>Stay updated with the latest news</p>
-            <div class="app-meta">
-              <span class="category">News</span>
+        <div class="app-track">
+          <div class="app-card">
+            <img src="images/Walapy-news-app-store.png" alt="Walapy News App" />
+            <div class="app-info">
+              <h3>Walapy News</h3>
+              <p>Stay updated with the latest news</p>
+              <div class="app-meta">
+                <span class="category">News</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="app-card">
-          <img src="images/Zoomer-App-Store.png" alt="Zoomer App" />
-          <div class="app-info">
-            <h3>Zoomer</h3>
-            <p>Connect with your community</p>
-            <div class="app-meta">
-              <span class="category">Social</span>
+          <div class="app-card">
+            <img src="images/Zoomer-App-Store.png" alt="Zoomer App" />
+            <div class="app-info">
+              <h3>Zoomer</h3>
+              <p>Connect with your community</p>
+              <div class="app-meta">
+                <span class="category">Social</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="app-card">
-          <img src="images/Rave-Nation-App-Store.png" alt="Rave Nation App" />
-          <div class="app-info">
-            <h3>Rave Nation</h3>
-            <p>Experience the ultimate rave</p>
-            <div class="app-meta">
-              <span class="category">Entertainment</span>
+          <div class="app-card">
+            <img src="images/Rave-Nation-App-Store.png" alt="Rave Nation App" />
+            <div class="app-info">
+              <h3>Rave Nation</h3>
+              <p>Experience the ultimate rave</p>
+              <div class="app-meta">
+                <span class="category">Entertainment</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <img src="images/Walapy-news-app-store.png" alt="Walapy News App" />
+            <div class="app-info">
+              <h3>Walapy News</h3>
+              <p>Stay updated with the latest news</p>
+              <div class="app-meta">
+                <span class="category">News</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <img src="images/Zoomer-App-Store.png" alt="Zoomer App" />
+            <div class="app-info">
+              <h3>Zoomer</h3>
+              <p>Connect with your community</p>
+              <div class="app-meta">
+                <span class="category">Social</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <img src="images/Rave-Nation-App-Store.png" alt="Rave Nation App" />
+            <div class="app-info">
+              <h3>Rave Nation</h3>
+              <p>Experience the ultimate rave</p>
+              <div class="app-meta">
+                <span class="category">Entertainment</span>
+              </div>
             </div>
           </div>
         </div>
