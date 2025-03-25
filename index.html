@@ -561,6 +561,40 @@
         margin: 0 auto;
       }
     }
+
+    .logo-slideshow {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      background: #f8f9ff;
+      padding: 2rem 0;
+      box-shadow: 0 15px 30px rgba(93, 91, 255, 0.1);
+      margin-bottom: 4rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-track {
+      display: flex;
+      width: calc(100px * 20);
+      animation: scroll 20s linear infinite;
+    }
+
+    .logo-track img {
+      width: 100px;
+      height: 100px;
+      padding: 0 1rem;
+      object-fit: contain;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-100px * 10));
+      }
+    }
   </style>
 </head>
 <body>
@@ -615,6 +649,33 @@
       <img src="images/headshot-despill-2.png" alt="Christopher Walsh - App Development Consultant" />
       <div class="bg-shape shape-1"></div>
     </section>
+
+    <!-- Logo Slideshow Section -->
+    <div class="logo-slideshow">
+      <div class="logo-track">
+        <img src="Images-slideshow/apple-logo-icon-1661x2048-8adk63j7.png" alt="Apple Logo">
+        <img src="Images-slideshow/Android_Studio_Logo_2024.svg.png" alt="Android Studio Logo">
+        <img src="Images-slideshow/cloud.png" alt="Cloud Logo">
+        <img src="Images-slideshow/JavaScript-logo.png" alt="JavaScript Logo">
+        <img src="Images-slideshow/Google_Chrome_icon_(February_2022).svg.png" alt="Google Chrome Logo">
+        <img src="Images-slideshow/HTML5_logo_and_wordmark.svg (1).png" alt="HTML5 Logo">
+        <img src="Images-slideshow/Safari_browser_logo.svg.png" alt="Safari Logo">
+        <img src="Images-slideshow/Android_robot.svg.png" alt="Android Robot Logo">
+        <img src="Images-slideshow/1200x630bb.png" alt="Generic Logo">
+        <img src="Images-slideshow/React-icon.svg (1).png" alt="React Logo">
+        <!-- Duplicate logos for seamless loop -->
+        <img src="Images-slideshow/apple-logo-icon-1661x2048-8adk63j7.png" alt="Apple Logo">
+        <img src="Images-slideshow/Android_Studio_Logo_2024.svg.png" alt="Android Studio Logo">
+        <img src="Images-slideshow/cloud.png" alt="Cloud Logo">
+        <img src="Images-slideshow/JavaScript-logo.png" alt="JavaScript Logo">
+        <img src="Images-slideshow/Google_Chrome_icon_(February_2022).svg.png" alt="Google Chrome Logo">
+        <img src="Images-slideshow/HTML5_logo_and_wordmark.svg (1).png" alt="HTML5 Logo">
+        <img src="Images-slideshow/Safari_browser_logo.svg.png" alt="Safari Logo">
+        <img src="Images-slideshow/Android_robot.svg.png" alt="Android Robot Logo">
+        <img src="Images-slideshow/1200x630bb.png" alt="Generic Logo">
+        <img src="Images-slideshow/React-icon.svg (1).png" alt="React Logo">
+      </div>
+    </div>
 
     <!-- CTA Section -->
     <div style="text-align: center; margin: 2rem 0 6rem; padding: 3rem; background: linear-gradient(135deg, #f8f9ff 0%, #f0f0ff 100%); border-radius: 20px; box-shadow: 0 15px 30px rgba(93, 91, 255, 0.1);">
