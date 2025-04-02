@@ -271,8 +271,8 @@
     .app-track {
       display: flex;
       gap: 2rem;
-      width: fit-content;
-      animation: slideshow 30s linear infinite;
+      animation: slideshow 40s linear infinite;
+      width: max-content;
     }
 
     .app-track:hover {
@@ -284,7 +284,7 @@
         transform: translateX(0);
       }
       100% {
-        transform: translateX(calc(-340px * 3));
+        transform: translateX(calc(-322px * 4));
       }
     }
 
@@ -295,6 +295,7 @@
       overflow: hidden;
       box-shadow: 0 15px 30px rgba(93, 91, 255, 0.1);
       transition: transform 0.3s ease;
+      margin-right: 2px;
     }
 
     .app-card:hover {
@@ -372,7 +373,7 @@
           transform: translateX(0);
         }
         100% {
-          transform: translateX(calc(-300px * 3));
+          transform: translateX(calc(-282px * 4));
         }
       }
     }
@@ -437,16 +438,16 @@
     /* Chrome-specific fixes */
     @media screen and (-webkit-min-device-pixel-ratio:0) {
       .app-track {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-scroll-snap-type: x mandatory;
-        scroll-snap-type: x mandatory;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        will-change: transform;
+        transform: translate3d(0, 0, 0);
       }
       
       .app-card {
-        -webkit-scroll-snap-align: start;
-        scroll-snap-align: start;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        transform: translate3d(0, 0, 0);
       }
     }
 
@@ -650,9 +651,7 @@
           App Development • Remote CTO  • Consulting • AI Integration • Product Management
         </p>
         <p class="hero-description" style="font-size: 1.1rem; line-height: 1.8; color: #4a4a6a; margin-bottom: 2rem;">
-          We build custom mobile apps that help businesses drive more sales, improve customer loyalty, and deliver a better user experience. With features like personalized offers, digital gift cards, and push notifications, our apps turn one-time visitors into loyal regulars — boosting repeat sales and cutting down marketing costs. By streamlining ordering and engagement in one easy-to-use platform, we help you grow your bottom line while giving your customers a seamless, rewarding experience they’ll keep coming back for.
-
-
+          We build custom mobile apps that help businesses drive more sales, improve customer loyalty, and deliver a better user experience. With features like personalized offers, digital gift cards, and push notifications, our apps turn one-time visitors into loyal regulars — boosting repeat sales and cutting down marketing costs. By streamlining ordering and engagement in one easy-to-use platform, we help you grow your bottom line while giving your customers a seamless, rewarding experience they'll keep coming back for.
         </p>
       </div>
       <img src="images/headshot-despill-2.png" alt="Christopher Walsh - App Development Consultant" />
@@ -711,6 +710,7 @@
       
       <div class="app-releases">
         <div class="app-track">
+          <!-- First set -->
           <div class="app-card">
             <img src="images/margaretimage.png" alt="Margaret App" />
             <div class="app-info">
@@ -748,6 +748,19 @@
           </div>
 
           <div class="app-card">
+            <img src="images/podcast-producer.png" alt="Podcast Producer" />
+            <div class="app-info">
+              <h3>Production Producer</h3>
+              <p>Prepare Plan & Produce Your Best Podcast Possible</p>
+              <div class="app-meta">
+                <span class="category">Productivity</span>
+                <span class="platform">macOS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Duplicate set for seamless loop -->
+          <div class="app-card">
             <img src="images/margaretimage.png" alt="Margaret App" />
             <div class="app-info">
               <h3>Margaret</h3>
@@ -778,6 +791,18 @@
               <p>The intelligent system</p>
               <div class="app-meta">
                 <span class="category">Technology</span>
+                <span class="platform">iOS</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <img src="images/podcast-producer.png" alt="Podcast Producer" />
+            <div class="app-info">
+              <h3>Production Producer</h3>
+              <p>Prepare Plan & Produce Podcasts</p>
+              <div class="app-meta">
+                <span class="category">Audio</span>
                 <span class="platform">iOS</span>
               </div>
             </div>
