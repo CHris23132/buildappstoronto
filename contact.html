@@ -291,8 +291,11 @@
       box-shadow: 0 6px 20px rgba(93, 91, 255, 0.4);
     }
 
-    /* Force white text color for Google Calendar button */
-    #floating-calendar-button .calendar-button span {
+    /* Force white text color for all elements in Google Calendar button */
+    #floating-calendar-button .calendar-button,
+    #floating-calendar-button .calendar-button span,
+    #floating-calendar-button .calendar-button div,
+    #floating-calendar-button .calendar-button * {
       color: white !important;
     }
 
