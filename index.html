@@ -1,1331 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Toronto Innovation Lab</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset some basic elements */
+    /* Reset & base */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
     }
-
-    /* Improved mobile handling */
-    html, body {
-      width: 100%;
-      height: 100%;
-      overflow-x: hidden;
-      -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
+    html {
+      font-size: 16px;
     }
-
-    /* Top Banner */
-    .top-banner {
-      background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
-      color: #f8f6f0;
-      text-align: center;
-      padding: 0.75rem 1rem;
-      font-weight: 500;
-      position: relative;
-      overflow: hidden;
-      font-size: 1.1rem;
-      animation: bannerSlide 0.5s ease-out;
-    }
-
-    .top-banner::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(248, 246, 240, 0.1), transparent);
-      transform: translateX(-100%);
-      animation: shimmer 3s infinite;
-    }
-
-    @keyframes bannerSlide {
-      from {
-        transform: translateY(-100%);
-      }
-      to {
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes shimmer {
-      100% {
-        transform: translateX(100%);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .top-banner {
-        font-size: 0.9rem;
-        padding: 0.5rem 1rem;
-        line-height: 1.4;
-      }
-    }
-
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background: linear-gradient(135deg, #fefefe 0%, #f8f6f0 100%);
-      color: #2c2c2c;
+      font-family: 'Inter', sans-serif;
       line-height: 1.6;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      color: #111;
+      background-color: #f9f8f6;
     }
-
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 2rem 0;
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 90%;
-    }
-
-    .logo h2 {
-      font-size: 1.8rem;
-      color: #2c2c2c;
-      font-weight: 700;
-      margin-bottom: 0.2rem;
-    }
-
-    .logo .subtitle {
-      font-size: 0.9rem;
-      color: #6b6b6b;
-      font-weight: 500;
-      opacity: 0.9;
-    }
-
-    nav {
-      display: flex;
-      gap: 2rem;
-    }
-
-    nav a {
+    a {
       text-decoration: none;
-      color: #2c2c2c;
-      font-weight: 500;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
+      color: inherit;
     }
 
-    nav a:hover {
-      color: #8b7355;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 90%;
-      padding: 2rem 0;
-    }
-
-    section {
-      margin-bottom: 8rem;
+    /* Header */
+    .navbar {
       display: flex;
-      align-items: center;
-      gap: 4rem;
-      position: relative;
-    }
-
-    section img {
-      max-width: 500px;
-      width: 100%;
-      height: auto;
-      border-radius: 20px;
-      filter: drop-shadow(0 20px 40px rgba(139, 115, 85, 0.1));
-    }
-
-    section h1 {
-      font-size: 4rem;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, #2c2c2c 0%, #8b7355 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      color: transparent; /* Fallback */
-      font-weight: 700;
-    }
-
-    .hero-subheading {
-      font-size: 1.3rem;
-      line-height: 1.6;
-      color: #6b6b6b;
-      margin-bottom: 2rem;
-      max-width: 650px;
-      font-weight: 500;
-    }
-
-    section h2 {
-      font-size: 2.5rem;
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-      color: #2c2c2c;
-      font-weight: 700;
-    }
-
-    section p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: #6b6b6b;
-      margin-bottom: 2rem;
-      max-width: 600px;
-    }
-
-    .text-content {
-      flex: 1;
-    }
-
-    .cta-button {
-      display: inline-flex;
+      justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      background: linear-gradient(135deg, #8b7355 0%, #6b5b47 100%);
-      color: #fefefe;
-      text-decoration: none;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 10px 20px rgba(139, 115, 85, 0.2);
+      background: #fff;
     }
-
-    .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 30px rgba(139, 115, 85, 0.3);
+    .navbar .logo {
+      font-weight: bold;
+      font-size: 1.25rem;
     }
-
-    /* Decorative elements */
-    .bg-shape {
-      position: absolute;
-      z-index: -1;
-      opacity: 0.1;
+    .navbar nav a {
+      margin-left: 1.5rem;
+      font-weight: 500;
+      color: #333;
     }
-
-    .shape-1 {
-      top: -50px;
-      right: -100px;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, #8b7355 0%, transparent 70%);
-      border-radius: 50%;
-    }
-
-    footer {
-      text-align: center;
-      padding: 3rem 0;
-      color: #6b6b6b;
-      font-size: 1rem;
-      border-top: 1px solid rgba(107, 107, 107, 0.1);
-      margin-top: 4rem;
-    }
-
-    /* Releases Section Styles */
-    .releases-section {
-      padding: 4rem 0;
-      background: linear-gradient(135deg, #fefefe 0%, #f8f6f0 100%);
-      border-radius: 30px;
-      margin: 4rem 0;
-      border: 1px solid rgba(139, 115, 85, 0.1);
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .section-header h2 {
-      font-size: 3rem;
-      background: linear-gradient(135deg, #2c2c2c 0%, #8b7355 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      color: transparent; /* Fallback */
-      margin-bottom: 0.5rem;
-    }
-
-    .developer-name {
-      font-size: 1.2rem;
-      color: #6b6b6b;
+    .navbar .cta {
+      border: 1px solid #333;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
       font-weight: 500;
     }
 
-    .app-releases {
-      position: relative;
-      overflow: hidden;
-      padding: 1rem;
-    }
-
-    .app-track {
-      display: flex;
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 2rem;
-      animation: slideshow 40s linear infinite;
-      width: max-content;
-    }
-
-    .app-track:hover {
-      animation-play-state: paused;
-    }
-
-    @keyframes slideshow {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(calc(-322px * 4));
-      }
-    }
-
-    .app-card {
-      flex: 0 0 320px;
-      background: #fefefe;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 15px 30px rgba(139, 115, 85, 0.1);
-      transition: transform 0.3s ease;
-      margin-right: 2px;
-      border: 1px solid rgba(139, 115, 85, 0.05);
-    }
-
-    .app-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(139, 115, 85, 0.15);
-    }
-
-    .app-card img {
-      width: 100%;
-      height: 240px;
-      object-fit: contain;
-      background: #f8f6f0;
-      padding: 1rem;
-      border-bottom: 1px solid rgba(139, 115, 85, 0.1);
-    }
-
-    .app-info {
-      padding: 1.5rem;
-    }
-
-    .app-info h3 {
-      font-size: 1.4rem;
-      color: #2c2c2c;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-
-    .app-info p {
-      color: #6b6b6b;
-      margin-bottom: 1rem;
-      font-size: 1rem;
-    }
-
-    .app-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.9rem;
-    }
-
-    .rating {
-      color: #d4af37;
-      font-weight: 600;
-    }
-
-    .category, .platform, .price {
-      color: #8b7355;
-      background: rgba(139, 115, 85, 0.1);
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      font-weight: 500;
-    }
-
-    /* Responsive adjustments for releases section */
-    @media (max-width: 768px) {
-      .releases-section {
-        padding: 2rem 0;
-        margin: 2rem 0;
-      }
-
-      .section-header h2 {
-        font-size: 2rem;
-      }
-
-      .app-card {
-        flex: 0 0 280px;
-      }
-
-      .app-info {
-        padding: 1rem;
-      }
-
-      @keyframes slideshow {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(calc(-282px * 4));
-        }
-      }
-    }
-
-    /* Responsive layout */
-    @media (max-width: 1024px) {
-      section h1 {
-        font-size: 3rem;
-      }
-      
-      section h2 {
-        font-width: 2rem;
-      }
-    }
-
-    @media (max-width: 768px) {
-      section {
-        flex-direction: column;
-        text-align: center;
-        gap: 2rem;
-        padding: 0 1rem;
-        margin-bottom: 4rem;
-      }
-
-      section img {
-        max-width: 100%;
-        margin: 0 auto;
-        order: -1;
-      }
-
-      .hero-subheading, section p {
-        width: 100%;
-        max-width: 100%;
-        padding: 0 0.5rem;
-      }
-
-      .text-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-      }
-
-      nav {
-        display: none;
-      }
-
-      .mobile-menu-toggle {
-        display: flex;
-      }
-
-      section h1 {
-        font-size: 2.5rem;
-        padding: 0 0.5rem;
-      }
-
-      .app-track:hover {
-        animation-play-state: paused;
-      }
-    }
-
-    /* Chrome-specific fixes */
-    @media screen and (-webkit-min-device-pixel-ratio:0) {
-      .app-track {
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        will-change: transform;
-        transform: translate3d(0, 0, 0);
-      }
-      
-      .app-card {
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        transform: translate3d(0, 0, 0);
-      }
-    }
-
-    /* Mobile Menu Styles */
-    .mobile-menu-toggle {
-      display: none;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 30px;
-      height: 21px;
-      cursor: pointer;
-      z-index: 1000;
-    }
-
-    .mobile-menu-toggle span {
-      display: block;
-      width: 100%;
-      height: 3px;
-      background-color: #2c2c2c;
-      border-radius: 3px;
-      transition: all 0.3s ease;
-    }
-
-    .mobile-menu {
-      position: fixed;
-      top: 0;
-      right: -300px;
-      width: 300px;
-      height: 100vh;
-      background: #fefefe;
-      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-      z-index: 999;
-      transition: right 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      padding: 5rem 2rem 2rem;
-    }
-
-    .mobile-menu.active {
-      right: 0;
-    }
-
-    .mobile-menu a {
-      text-decoration: none;
-      color: #2c2c2c;
-      font-weight: 500;
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-      transition: color 0.3s ease;
-    }
-
-    .mobile-menu a:hover {
-      color: #8b7355;
-    }
-
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 998;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .consultation-section {
-      padding: 6rem 0;
-      background: linear-gradient(135deg, #fefefe 0%, #f8f6f0 100%);
-      border-radius: 30px;
-      margin: 8rem 0;
-      border: 1px solid rgba(139, 115, 85, 0.1);
-    }
-
-    .consultation-container {
-      display: flex;
-      gap: 4rem;
-      align-items: center;
+      align-items: start;
       max-width: 1200px;
-      margin: 0 auto;
-      width: 90%;
-    }
-
-    .consultation-content {
-      flex: 1;
-    }
-
-    .consultation-calendar {
-      flex: 1;
-      background: #fefefe;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 15px 30px rgba(139, 115, 85, 0.1);
-      border: 1px solid rgba(139, 115, 85, 0.05);
-    }
-
-    .consultation-eyebrow {
-      color: #8b7355;
-      font-weight: 600;
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    @media (max-width: 1024px) {
-      .consultation-container {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .consultation-content {
-        max-width: 600px;
-        margin: 0 auto;
-      }
-    }
-
-    .logo-slideshow {
-      overflow: hidden;
-      position: relative;
-      width: 100%;
-      background: #f8f6f0;
-      padding: 2rem 0;
-      box-shadow: 0 15px 30px rgba(139, 115, 85, 0.1);
-      margin-bottom: 4rem;
-      display: flex;
-      align-items: center;
-      border: 1px solid rgba(139, 115, 85, 0.05);
-    }
-
-    .logo-track {
-      display: flex;
-      width: calc(100px * 20);
-      animation: scroll 20s linear infinite;
-    }
-
-    .logo-track img {
-      width: 100px;
-      height: 100px;
+      margin: 2rem auto;
       padding: 0 1rem;
-      object-fit: contain;
     }
-
-    @keyframes scroll {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(calc(-100px * 10));
-      }
+    .hero-content {
+      max-width: 550px;
     }
-
-    /* Floating Appointment Button Styles */
-    #floating-calendar-button {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      z-index: 1000;
-    }
-
-    #floating-calendar-button .calendar-button {
-      background: linear-gradient(135deg, #8b7355 0%, #6b5b47 100%);
-      color: #fefefe !important;
-      padding: 12px 24px;
-      border-radius: 50px;
-      box-shadow: 0 4px 15px rgba(139, 115, 85, 0.3);
-      font-weight: 600;
-      display: flex;
+    .rating {
+      display: inline-flex;
       align-items: center;
-      gap: 8px;
-      transition: all 0.3s ease;
+      background: #ececec;
+      border-radius: 999px;
+      padding: 0.3rem 0.6rem;
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+      color: #555;
     }
-
-    #floating-calendar-button .calendar-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(139, 115, 85, 0.4);
-    }
-
-    /* Force white text color for all elements in Google Calendar button */
-    #floating-calendar-button .calendar-button,
-    #floating-calendar-button .calendar-button span,
-    #floating-calendar-button .calendar-button div,
-    #floating-calendar-button .calendar-button * {
-      color: #fefefe !important;
-    }
-
-    @media (max-width: 768px) {
-      #floating-calendar-button {
-        right: 10px;
-        bottom: 10px;
-      }
-    }
-
-    /* Testimonial Section Styles */
-    .testimonials-title {
-      font-size: 2.2rem;
-      color: #2c2c2c;
-      letter-spacing: 0.02em;
-      font-weight: 700;
-      text-align: center;
-      margin: 0 auto 0.5em auto;
-      background: linear-gradient(90deg, #2c2c2c 0%, #8b7355 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
+    .rating .icon {
       display: inline-block;
+      width: 1rem;
+      height: 1rem;
+      background: #555;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 0.75rem;
+      line-height: 1rem;
+      text-align: center;
+      margin-right: 0.4rem;
     }
-    .testimonial-section {
-      padding: 6.5rem 0;
-      background: linear-gradient(135deg, #fefefe 0%, #f8f6f0 100%);
-      border-radius: 30px;
-      margin: 2rem 0 4rem 0;
-      border: 1px solid rgba(139, 115, 85, 0.1);
-      position: relative;
-      overflow: visible;
-      min-height: 480px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .rating .stars {
+      margin-right: 0.4rem;
     }
-    .testimonial-container {
-      max-width: 900px;
+    .rating .stars span {
+      font-size: 0.875rem;
+      color: #f5a623;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .hero-content p {
+      margin-bottom: 1rem;
+      color: #555;
+    }
+
+    /* Form */
+    .hero-form {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1.25rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      max-width: 500px;
       width: 100%;
       margin: 0 auto;
-      position: relative;
-      min-height: 340px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 2rem;
-      overflow: hidden;
-      height: 100%;
     }
-    .testimonial-content {
-      position: relative;
-      width: 100%;
-      max-width: 700px;
-      margin: 0 auto;
-      opacity: 0;
-      display: none;
+    .hero-form h2 {
+      font-size: 2rem;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 2rem;
+      line-height: 1.2;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero-form .field {
+      display: flex;
       flex-direction: column;
+      margin-bottom: 0;
+    }
+    .hero-form label {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: #222;
+    }
+    .hero-form input {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 1px solid #ececec;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      outline: none;
+      background: #fafafa;
+      margin-bottom: 0.2rem;
+    }
+    .hero-form .note {
+      font-size: 0.92rem;
+      color: #888;
+      margin-bottom: 0.2rem;
+      margin-top: 0;
+    }
+    .hero-form button {
+      width: 60%;
+      margin: 2rem auto 0 auto;
+      display: block;
+      padding: 1rem 0;
+      border: none;
+      border-radius: 1.5rem;
+      background: #a7a4a0;
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .hero-form button:hover {
+      background: #888;
+    }
+
+    /* Trusted logos */
+    .trusted {
+      text-align: left;
+      margin: 3rem 0 2rem;
+      color: #777;
+      font-size: 0.875rem;
+    }
+    .trusted-logos {
+      display: flex;
+      justify-content: flex-start;
       align-items: center;
-      justify-content: center;
-      height: auto;
-      transform: translateX(100%);
-      transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.6s cubic-bezier(0.4,0,0.2,1);
-      padding: 0 1rem;
-      z-index: 1;
-      text-align: center;
-      background: none;
+      gap: 2rem;
+      margin-top: 1rem;
     }
-    .testimonial-content.active {
-      opacity: 1;
-      transform: translateX(0);
-      z-index: 2;
-      display: flex;
+    .trusted-logos img {
+      max-height: 40px;
+      opacity: 0.6;
     }
-    .testimonial-content.slide-out {
-      opacity: 0;
-      transform: translateX(-100%);
-      z-index: 1;
-      display: flex;
-    }
-    .testimonial-text {
-      font-size: 1.3rem;
-      line-height: 1.7;
-      color: #2c2c2c;
-      margin-bottom: 2.2rem;
-      font-style: italic;
-      font-weight: 400;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      word-wrap: break-word;
-      hyphens: auto;
-      text-align: center;
-      background: none;
-      display: block;
-    }
-    .testimonial-author {
-      font-size: 1.15rem;
-      color: #8b7355;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 1.2rem;
-      text-align: center;
-      display: block;
-    }
-    @media (max-width: 768px) {
-      .testimonial-section {
-        padding: 3.5rem 0;
-        min-height: 300px;
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
       }
-      .testimonial-container {
-        min-height: 180px;
-      }
-      .testimonial-text {
-        font-size: 1.05rem;
-        margin-bottom: 1.2rem;
-      }
-      .testimonial-author {
-        font-size: 0.95rem;
-        margin-top: 0.7rem;
+      .hero-form {
+        margin-top: 2rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Floating Calendar Button -->
-  <div id="floating-calendar-button">
-    <!-- Google Calendar Appointment Scheduling begin -->
-    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-    <script>
-    (function() {
-      var target = document.currentScript;
-      window.addEventListener('load', function() {
-        calendar.schedulingButton.load({
-          url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2OdFh29uN2U1IpA5JKGDQlV2T3dGbxCj8oI4Qpmx3fE8s2uDafqXzW-OxvYVFyBRvwtekfAy3q?gv=true',
-          color: '#8b7355',
-          label: 'Book a Consultation',
-          target,
-        });
-      });
-    })();
-    </script>
-    <!-- end Google Calendar Appointment Scheduling -->
-  </div>
 
-  <div class="top-banner">
-    App Development, Software Solutions & AI Integration
-  </div>
-
-  <header>
-    <div class="logo">
-      <h2>Toronto Innovation Lab</h2>
-      <div class="subtitle">by Christopher John Walsh</div>
-    </div>
+  <header class="navbar">
+    <div class="logo">Toronto Innovation Lab</div>
     <nav>
-      <a href="blog.html">Blog</a>
-      <a href="automation.html">Automation</a>
-      <a href="about.html">About</a>
-      <a href="careers.html">Careers</a>
-      <a href="contact.html">Contact</a>
+      <a href="#">Product</a>
+      <a href="#">Solutions</a>
+      <a href="#">Enterprise</a>
+      <a href="#">Customers</a>
+      <a href="#">Resources</a>
+      <a href="#">Pricing</a>
+      <a href="#" class="cta">Get started</a>
+      <a href="#">Sign in</a>
     </nav>
-    
-    <!-- Mobile Menu Toggle -->
-    <div class="mobile-menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    
-    <!-- Mobile Menu -->
-    <div class="mobile-menu">
-      <a href="index.html">Home</a>
-      <a href="blog.html">Blog</a>
-      <a href="automation.html">Automation</a>
-      <a href="about.html">About</a>
-      <a href="careers.html">Careers</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    
-    <!-- Overlay -->
-    <div class="overlay"></div>
   </header>
 
-  <main class="container">
-    <!-- Section 1 -->
-    <section id="apps-help">
-      <div class="text-content">
-        <h1>Expert App Development Leadership</h1>
-        <p class="hero-subheading">
-          App Development • Remote CTO  • Consulting • AI Integration • Product Management
-        </p>
-        <p class="hero-description" style="font-size: 1.1rem; line-height: 1.8; color: #6b6b6b; margin-bottom: 2rem;">
-          We build custom mobile apps that help businesses drive more sales, improve customer loyalty, and deliver a better user experience. With features like personalized offers, digital gift cards, and push notifications, our apps turn one-time visitors into loyal regulars — boosting repeat sales and cutting down marketing costs. By streamlining ordering and engagement in one easy-to-use platform, we help you grow your bottom line while giving your customers a seamless, rewarding experience they'll keep coming back for.
-        </p>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="rating">
+        <div class="icon">f</div>
+        <div class="stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <div>5.0 Stars</div>
       </div>
-      <img src="images/headshot-despill-2.png" alt="Christopher Walsh - App Development Consultant" />
-      <div class="bg-shape shape-1"></div>
-    </section>
-
-    <!-- Testimonials Title -->
-    <div class="section-header" style="margin-bottom:2rem;">
-      <h2 class="testimonials-title">Testimonials</h2>
+      <h1>Automate processes bookings, customer service, and customer support</h1>
+      <p>Transform complex, human-driven workflows into streamlined, intelligent operations with Moxo. Empower your teams to focus on high-trust decisions while automations and AI handle the rest.</p>
+      <p>Drive the right action, from the right user, at the right time.</p>
+      <section class="trusted">
+        <div>Trusted by industry leaders</div>
+        <div class="trusted-logos">
+          <img src="web-images/travelspoken.png" alt="Travel Spoken Logo">
+          <img src="web-images/kav-food-group.png" alt="Kavanaugh Foods Logo">
+          <img src="web-images/americanlivestockmanagement.png" alt="American Livestock Management Logo">
+          <img src="web-images/Hospitality.png" alt="Ellingsworth Hospitality Logo">
+        </div>
+      </section>
     </div>
-    <!-- Testimonial Section -->
-    <section class="testimonial-section">
-      <div class="testimonial-container">
-        <div class="testimonial-content active" data-index="0">
-          <div class="testimonial-text">
-            Chris Walsh truly impressed with exceptional mobile app development skills, EXCEEDING expectations through meticulous attention to detail and code expertise. Working with Chris was smooth and hassle-free, thanks to quick responsiveness and outstanding cooperation, ensuring timely delivery. 🙌
-          </div>
-          <div class="testimonial-author">- kurtaberle</div>
+    <form class="hero-form">
+      <h2>From manual coordination<br>to intelligent orchestration</h2>
+      <div class="form-row">
+        <div class="field">
+          <label for="email">Email*</label>
+          <input id="email" type="email" placeholder="What's your work email?" required>
+          <div class="note">Please enter a business email address.</div>
         </div>
-        
-        <div class="testimonial-content" data-index="1">
-          <div class="testimonial-text">
-            Chris went above and beyond, I highly recommend!
-          </div>
-          <div class="testimonial-author">- Victor Asooye</div>
-        </div>
-        
-        <div class="testimonial-content" data-index="2">
-          <div class="testimonial-text">
-            Very happy to continue working with Chris!
-          </div>
-          <div class="testimonial-author">- Mati Weiss</div>
-        </div>
-        
-        <div class="testimonial-content" data-index="3">
-          <div class="testimonial-text">
-            Chris goes over and above the project requirements and brings ideas and insight to enhance each project. His energy and enthusiasm is inspiring and he is a pleasure to work with. Thanks for bringing your "A" game every time Chris!
-          </div>
-          <div class="testimonial-author">- John Malone</div>
-        </div>
-        
-        <div class="testimonial-content" data-index="4">
-          <div class="testimonial-text">
-            Chris really shows attention to detail and treated this project like it was his own. I had many questions along the way and he always answered them to the detail. He takes the time to explain and explains it crystal clear, as someone who doesn't have a background in tech so much I have been able to learn from this process so far. He is very communicative and answers all questions that I have and continue to have. Working with him is a breeze, thanks to his deep understanding and proactive communication. Looking forward to a long term working-relationship with him 🙌
-          </div>
-          <div class="testimonial-author">- Eni Maj</div>
-        </div>
-        
-        <div class="testimonial-content" data-index="5">
-          <div class="testimonial-text">
-            Chris did a great job building out my software that was by no means an easy concept. He had great communication and solved any issues that came up along the way. I am very pleased.
-          </div>
-          <div class="testimonial-author">- Bennett Geissler</div>
+        <div class="field">
+          <label for="orgsize">Organization size*</label>
+          <input id="orgsize" type="text" placeholder="Organization size" required value="1-10">
         </div>
       </div>
-    </section>
-
-    <!-- Logo Slideshow Section -->
-    <div class="logo-slideshow">
-      <div class="logo-track">
-        <img src="Images-slideshow/apple-logo-icon-1661x2048-8adk63j7.png" alt="Apple Logo">
-        <img src="Images-slideshow/Android_Studio_Logo_2024.svg.png" alt="Android Studio Logo">
-        <img src="Images-slideshow/cloud.png" alt="Cloud Logo">
-        <img src="Images-slideshow/JavaScript-logo.png" alt="JavaScript Logo">
-        <img src="Images-slideshow/Google_Chrome_icon_(February_2022).svg.png" alt="Google Chrome Logo">
-        <img src="Images-slideshow/HTML5_logo_and_wordmark.svg (1).png" alt="HTML5 Logo">
-        <img src="Images-slideshow/Safari_browser_logo.svg.png" alt="Safari Logo">
-        <img src="Images-slideshow/Android_robot.svg.png" alt="Android Robot Logo">
-        <img src="Images-slideshow/1200x630bb.png" alt="Generic Logo">
-        <img src="Images-slideshow/React-icon.svg (1).png" alt="React Logo">
-        <!-- Duplicate logos for seamless loop -->
-        <img src="Images-slideshow/apple-logo-icon-1661x2048-8adk63j7.png" alt="Apple Logo">
-        <img src="Images-slideshow/Android_Studio_Logo_2024.svg.png" alt="Android Studio Logo">
-        <img src="Images-slideshow/cloud.png" alt="Cloud Logo">
-        <img src="Images-slideshow/JavaScript-logo.png" alt="JavaScript Logo">
-        <img src="Images-slideshow/Google_Chrome_icon_(February_2022).svg.png" alt="Google Chrome Logo">
-        <img src="Images-slideshow/HTML5_logo_and_wordmark.svg (1).png" alt="HTML5 Logo">
-        <img src="Images-slideshow/Safari_browser_logo.svg.png" alt="Safari Logo">
-        <img src="Images-slideshow/Android_robot.svg.png" alt="Android Robot Logo">
-        <img src="Images-slideshow/1200x630bb.png" alt="Generic Logo">
-        <img src="Images-slideshow/React-icon.svg (1).png" alt="React Logo">
+      <div class="field">
+        <label for="phone">Phone number</label>
+        <input id="phone" type="tel" placeholder="What's your phone number?">
       </div>
-    </div>
+      <button type="submit">Get started</button>
+    </form>
+  </section>
 
-    <!-- CTA Section -->
-    <div style="text-align: center; margin: 2rem 0 6rem; padding: 3rem; background: linear-gradient(135deg, #fefefe 0%, #f8f6f0 100%); border-radius: 20px; box-shadow: 0 15px 30px rgba(139, 115, 85, 0.1); border: 1px solid rgba(139, 115, 85, 0.05);">
-      <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: #2c2c2c;">Ready to Build Your App the Right Way?</h2>
-      <p style="font-size: 1.2rem; color: #6b6b6b; max-width: 800px; margin: 0 auto 2rem;">
-        Book a free consultation to discuss your app idea and get expert guidance on development strategy, 
-        technology stack, and implementation roadmap. No obligation, just valuable insights to help you succeed.
-      </p>
-      <a href="contact.html" class="cta-button">Book Your Free Consultation</a>
-    </div> 
-
-    <!-- Releases Section -->
-    <section id="releases" class="releases-section">
-      <div class="section-header">
-        <h2>Latest Releases</h2>
-        <p class="developer-name">by Christopher Walsh</p>
-      </div>
-      
-      <div class="app-releases">
-        <div class="app-track">
-          <!-- First set -->
-          <div class="app-card">
-            <img src="images/margaretimage.png" alt="Margaret App" />
-            <div class="app-info">
-              <h3>Margaret</h3>
-              <p>Your very own secretary</p>
-              <div class="app-meta">
-                <span class="rating">★★★★★</span>
-                <span class="category">Productivity</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <img src="images/macosimage.png" alt="Make Apps" />
-            <div class="app-info">
-              <h3>Make Apps</h3>
-              <p>Full app planner and assistant</p>
-              <div class="app-meta">
-                <span class="price">$179.00</span>
-                <span class="category">Education</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <img src="images/arimage.png" alt="AR Experience" />
-            <div class="app-info">
-              <h3>AR Experience</h3>
-              <p>The intelligent system</p>
-              <div class="app-meta">
-                <span class="category">Technology</span>
-                <span class="platform">iOS</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <img src="images/podcast-producer.png" alt="Podcast Producer" />
-            <div class="app-info">
-              <h3>Production Producer</h3>
-              <p>Prepare Plan & Produce Your Best Podcast Possible</p>
-              <div class="app-meta">
-                <span class="category">Productivity</span>
-                <span class="platform">macOS</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Duplicate set for seamless loop -->
-          <div class="app-card">
-            <img src="images/margaretimage.png" alt="Margaret App" />
-            <div class="app-info">
-              <h3>Margaret</h3>
-              <p>Your very own secretary</p>
-              <div class="app-meta">
-                <span class="rating">★★★★★</span>
-                <span class="category">Productivity</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <img src="images/macosimage.png" alt="Make Apps" />
-            <div class="app-info">
-              <h3>Make Apps</h3>
-              <p>Full app planner and assistant</p>
-              <div class="app-meta">
-                <span class="price">$179.00</span>
-                <span class="category">Education</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <img src="images/arimage.png" alt="AR Experience" />
-            <div class="app-info">
-              <h3>AR Experience</h3>
-              <p>The intelligent system</p>
-              <div class="app-meta">
-                <span class="category">Technology</span>
-                <span class="platform">iOS</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <img src="images/podcast-producer.png" alt="Podcast Producer" />
-            <div class="app-info">
-              <h3>Production Producer</h3>
-              <p>Prepare Plan & Produce Podcasts</p>
-              <div class="app-meta">
-                <span class="category">Audio</span>
-                <span class="platform">iOS</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 2 -->
-    <section id="apps-improve">
-      <div class="text-content">
-        <h2>Apps Improve Business</h2>
-        <p>
-          Improve customer experience and don't let sales walk away. Collect sign-ups and information, 
-          onboard users, and automate processes within your business or store. 
-          An app can be a really great way to help. Give customers an extra way to get a personalized experience 
-          in relationship with your brand. You can also give them an option to shop with your favourite stores 
-          and get access to your premium features such as delivery options and more.
-        </p>
-      </div>
-      <img src="images/aiphone.png" alt="Apps Improve Business Image" />
-    </section>
-
-    <!-- Client Highlight Section -->
-    <section id="client-highlight" class="releases-section">
-      <div class="section-header">
-        <h2>Client Highlight</h2>
-        <p class="developer-name">Featured Projects</p>
-      </div>
-      
-      <div class="app-releases">
-        <div class="app-track">
-          <div class="app-card">
-            <img src="images/Walapy-news-app-store.png" alt="Walapy News App" />
-            <div class="app-info">
-              <h3>Walapy News</h3>
-              <p>Stay updated with the latest news</p>
-              <div class="app-meta">
-                <span class="category">News</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <img src="images/Zoomer-App-Store.png" alt="Zoomer App" />
-            <div class="app-info">
-              <h3>Zoomer</h3>
-              <p>Connect with your community</p>
-              <div class="app-meta">
-                <span class="category">Social</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <img src="images/Rave-Nation-App-Store.png" alt="Rave Nation App" />
-            <div class="app-info">
-              <h3>Rave Nation</h3>
-              <p>Experience the ultimate rave</p>
-              <div class="app-meta">
-                <span class="category">Entertainment</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <img src="images/Alm-App.jpg" alt="American Livestock Management" />
-            <div class="app-info">
-              <h3>American Livestock Management</h3>
-              <p>An innovative approach to managing cattle markets</p>
-              <div class="app-meta">
-                <span class="category">Agriculture</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <img src="images/Walapy-news-app-store.png" alt="Walapy News App" />
-            <div class="app-info">
-              <h3>Walapy News</h3>
-              <p>Stay updated with the latest news</p>
-              <div class="app-meta">
-                <span class="category">News</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <img src="images/Zoomer-App-Store.png" alt="Zoomer App" />
-            <div class="app-info">
-              <h3>Zoomer</h3>
-              <p>Connect with your community</p>
-              <div class="app-meta">
-                <span class="category">Social</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <img src="images/Rave-Nation-App-Store.png" alt="Rave Nation App" />
-            <div class="app-info">
-              <h3>Rave Nation</h3>
-              <p>Experience the ultimate rave</p>
-              <div class="app-meta">
-                <span class="category">Entertainment</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <img src="images/Alm-App.jpg" alt="American Livestock Management" />
-            <div class="app-info">
-              <h3>American Livestock Management</h3>
-              <p>An innovative approach to managing cattle markets</p>
-              <div class="app-meta">
-                <span class="category">Agriculture</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Consultation Section -->
-    <section class="consultation-section">
-      <div class="consultation-container">
-        <div class="consultation-content">
-          <div class="consultation-eyebrow">Free Consultation</div>
-          <h2>Get Your Free App Development Roadmap</h2>
-          <p class="hero-subheading">
-            Book a no-obligation consultation and discover how to bring your app idea to life
-          </p>
-          <p>
-            During this free session, we'll discuss your vision, outline the perfect tech stack, 
-            and provide expert insights on making your project a success. Get a clear roadmap 
-            for your app's development journey, whether you choose to work with us or not.
-          </p>
-        </div>
-        
-        <div class="consultation-calendar">
-          <!-- Google Calendar Appointment Scheduling begin -->
-          <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2OdFh29uN2U1IpA5JKGDQlV2T3dGbxCj8oI4Qpmx3fE8s2uDafqXzW-OxvYVFyBRvwtekfAy3q?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
-          <!-- end Google Calendar Appointment Scheduling -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 3 -->
-    <section id="ai-section">
-      <div class="text-content">
-        <h2>Artificial Intelligence?</h2>
-        <p>
-          AI or process automation? No problem. We've worked with all the latest APIs, 
-          whether that's integrating Gemini in API ChatGPT, or other cutting-edge solutions. 
-          We've done it before and we're on the leading edge of working with AI technology. 
-          Whatever your business needs and whatever processes could be improved with AI, 
-          we'll make sure to look into it and apply the cutting edge.
-        </p>
-      </div>
-      <img src="images/ux.png" alt="Artificial Intelligence Image" />
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Build Apps Toronto. All rights reserved. | 
-      <a href="https://torontoinnovationlab.com/privacy-policy.html" style="color: #8b7355; text-decoration: none;">Data Entry Privacy</a> | 
-      <a href="automated-analyst-policy.html" style="color: #8b7355; text-decoration: none;">Analyst Privacy</a> |
-      <a href="data-chat-policy.html" style="color: #8b7355; text-decoration: none;">Data Chat Privacy</a>
-    </p>
-  </footer>
-  
-  <!-- JavaScript for Mobile Menu -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const menuToggle = document.querySelector('.mobile-menu-toggle');
-      const mobileMenu = document.querySelector('.mobile-menu');
-      const overlay = document.querySelector('.overlay');
-      
-      menuToggle.addEventListener('click', function() {
-        mobileMenu.classList.toggle('active');
-        overlay.classList.toggle('active');
-        document.body.classList.toggle('menu-open');
-      });
-      
-      overlay.addEventListener('click', function() {
-        mobileMenu.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.classList.remove('menu-open');
-      });
-    });
-  </script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const scrollContainers = document.querySelectorAll('.app-releases');
-
-      scrollContainers.forEach(container => {
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        container.addEventListener('mousedown', (e) => {
-          isDown = true;
-          container.classList.add('active');
-          startX = e.pageX - container.offsetLeft;
-          scrollLeft = container.scrollLeft;
-        });
-
-        container.addEventListener('mouseleave', () => {
-          isDown = false;
-          container.classList.remove('active');
-        });
-
-        container.addEventListener('mouseup', () => {
-          isDown = false;
-          container.classList.remove('active');
-        });
-
-        container.addEventListener('mousemove', (e) => {
-          if (!isDown) return;
-          e.preventDefault();
-          const x = e.pageX - container.offsetLeft;
-          const walk = (x - startX) * 3; //scroll-fast
-          container.scrollLeft = scrollLeft - walk;
-        });
-
-        // Touch events
-        container.addEventListener('touchstart', (e) => {
-          startX = e.touches[0].pageX - container.offsetLeft;
-          scrollLeft = container.scrollLeft;
-        });
-
-        container.addEventListener('touchmove', (e) => {
-          const x = e.touches[0].pageX - container.offsetLeft;
-          const walk = (x - startX) * 3; //scroll-fast
-          container.scrollLeft = scrollLeft - walk;
-        });
-      });
-    });
-  </script>
-
-  <script>
-    // Testimonial Carousel Functionality with Slide Animation
-    document.addEventListener('DOMContentLoaded', function() {
-      const testimonials = document.querySelectorAll('.testimonial-content');
-      let currentIndex = 0;
-      const totalTestimonials = testimonials.length;
-      let isTransitioning = false;
-      const slideDuration = 600; // ms, matches CSS
-      const visibleDuration = 2400; // ms, so total is 3s
-
-      function showTestimonial(index) {
-        testimonials.forEach((testimonial) => {
-          testimonial.classList.remove('active', 'slide-out');
-          testimonial.style.zIndex = '';
-        });
-        testimonials[index].classList.add('active');
-        testimonials[index].style.zIndex = 2;
-      }
-
-      function slideTo(nextIndex) {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        const current = testimonials[currentIndex];
-        const next = testimonials[nextIndex];
-        // Prepare next testimonial to slide in from right
-        next.classList.remove('slide-out', 'active');
-        next.style.zIndex = 2;
-        // Slide out current to left
-        current.classList.remove('active');
-        current.classList.add('slide-out');
-        current.style.zIndex = 1;
-        // After slide out, slide in next
-        setTimeout(() => {
-          current.classList.remove('slide-out');
-          current.style.zIndex = '';
-          next.classList.add('active');
-          setTimeout(() => {
-            isTransitioning = false;
-          }, slideDuration);
-        }, slideDuration);
-      }
-
-      function nextTestimonial() {
-        const nextIndex = (currentIndex + 1) % totalTestimonials;
-        slideTo(nextIndex);
-        currentIndex = nextIndex;
-      }
-
-      // Start with first testimonial
-      showTestimonial(0);
-      // Auto-advance with smooth slide
-      setInterval(nextTestimonial, slideDuration * 2 + visibleDuration);
-    });
-  </script>
 </body>
 </html>
