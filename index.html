@@ -203,6 +203,20 @@
       width: auto;
       display: block;
     }
+    .sub-header {
+      background-color: #f9f8f6;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    .sub-nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .sub-nav a {
+      font-weight: 500;
+      color: #333;
+    }
   </style>
 </head>
 <body>
@@ -210,16 +224,20 @@
   <header class="navbar">
     <div class="logo"><img src="images/TILLogo.png" alt="Toronto Innovation Lab Logo" class="logo-img"></div>
     <nav>
+      <a href="#" class="cta">Get started</a>
+      <a href="#">Sign in</a>
+    </nav>
+  </header>
+  <div class="sub-header">
+    <nav class="sub-nav">
       <a href="#">Product</a>
       <a href="#">Solutions</a>
       <a href="#">Enterprise</a>
       <a href="#">Customers</a>
       <a href="#">Resources</a>
       <a href="#">Pricing</a>
-      <a href="#" class="cta">Get started</a>
-      <a href="#">Sign in</a>
     </nav>
-  </header>
+  </div>
 
   <section class="hero">
     <div class="hero-content">
