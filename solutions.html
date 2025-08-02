@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Automation Solutions - Toronto Innovation Lab</title>
+  <link rel="icon" type="image/png" href="FavIcon/favicon-Til-new.png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <style>
+    /* CSS Custom Properties */
+    :root {
+      --primary-color: #00d4ff;
+      --secondary-color: #0099cc;
+      --background-dark: #0a0a0a;
+      --background-gradient: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.8);
+      --text-muted: rgba(255, 255, 255, 0.6);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --shadow-light: 0 4px 15px rgba(0, 212, 255, 0.3);
+      --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.3);
+      --border-radius: 20px;
+      --border-radius-small: 12px;
+      --border-radius-large: 50px;
+      --transition: all 0.3s ease;
+      
+      /* Layout System */
+      --container-max: 1400px;
+      --container-wide: 1600px;
+      --section-padding: clamp(3rem, 8vw, 8rem);
+      --content-padding: clamp(1rem, 4vw, 2rem);
+      --grid-gap: clamp(2rem, 4vw, 4rem);
+      
+      /* Typography Scale */
+      --text-xs: clamp(0.75rem, 1.5vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 2vw, 1rem);
+      --text-base: clamp(1rem, 2.5vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 3vw, 1.25rem);
+      --text-xl: clamp(1.25rem, 4vw, 1.5rem);
+      --text-2xl: clamp(1.5rem, 5vw, 2rem);
+      --text-3xl: clamp(2rem, 6vw, 3rem);
+      --text-4xl: clamp(2.5rem, 8vw, 4rem);
+      --text-5xl: clamp(3rem, 10vw, 5rem);
+      
+      /* Spacing Scale */
+      --space-xs: clamp(0.5rem, 1vw, 0.75rem);
+      --space-sm: clamp(0.75rem, 2vw, 1rem);
+      --space-md: clamp(1rem, 3vw, 1.5rem);
+      --space-lg: clamp(1.5rem, 4vw, 2rem);
+      --space-xl: clamp(2rem, 5vw, 3rem);
+      --space-2xl: clamp(3rem, 6vw, 4rem);
+      --space-3xl: clamp(4rem, 8vw, 6rem);
+    }
+
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: var(--background-gradient);
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-size: var(--text-base);
+    }
+
+    /* Container System */
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 var(--content-padding);
+    }
+
+    .container-wide {
+      width: 100%;
+      max-width: var(--container-wide);
+      margin: 0 auto;
+      padding: 0 var(--content-padding);
+    }
+
+    /* Typography */
+    h1 {
+      font-size: var(--text-5xl);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: var(--space-lg);
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    h2 {
+      font-size: var(--text-4xl);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: var(--space-md);
+    }
+
+    h3 {
+      font-size: var(--text-2xl);
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: var(--space-sm);
+    }
+
+    p {
+      font-size: var(--text-lg);
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-md);
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-md) 0;
+    }
+
+    .logo {
+      height: 3rem;
+      width: auto;
+      filter: brightness(0) invert(1);
+    }
+
+    .nav-desktop {
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+    }
+
+    .nav-desktop a {
+      color: var(--text-primary);
+      font-weight: 500;
+      transition: var(--transition);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--border-radius-large);
+      text-decoration: none;
+    }
+
+    .nav-desktop a:hover {
+      color: var(--primary-color);
+      background: rgba(0, 212, 255, 0.1);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      color: var(--background-dark);
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--border-radius-large);
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      box-shadow: var(--shadow-light);
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      font-size: var(--text-sm);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: var(--space-sm);
+      z-index: 1001;
+    }
+
+    .mobile-menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: var(--text-primary);
+      margin: 3px 0;
+      transition: 0.3s;
+      border-radius: 2px;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-xl);
+    }
+
+    .mobile-nav.active {
+      display: flex;
+    }
+
+    .mobile-nav a {
+      font-size: var(--text-xl);
+      font-weight: 600;
+      color: var(--text-primary);
+      transition: var(--transition);
+      padding: var(--space-md) var(--space-xl);
+      text-decoration: none;
+    }
+
+    .mobile-nav a:hover {
+      color: var(--primary-color);
+      transform: scale(1.05);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: calc(80px + var(--section-padding)) 0 var(--section-padding);
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-subtitle {
+      display: inline-flex;
+      align-items: center;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--border-radius-large);
+      padding: var(--space-sm) var(--space-md);
+      font-size: var(--text-sm);
+      color: var(--text-primary);
+      margin-bottom: var(--space-xl);
+    }
+
+    .hero-subtitle::before {
+      content: '🤖';
+      margin-right: var(--space-sm);
+    }
+
+    /* Solutions Section */
+    .solutions {
+      padding: var(--section-padding) 0;
+      background: rgba(255, 255, 255, 0.02);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .solutions-header {
+      text-align: center;
+      margin-bottom: var(--space-3xl);
+    }
+
+    .solutions-header h2 {
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .solutions-header p {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+      gap: var(--space-xl);
+    }
+
+    .solution-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      padding: var(--space-2xl);
+      border-radius: var(--border-radius);
+      border: 1px solid var(--glass-border);
+      transition: var(--transition);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .solution-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 153, 204, 0.1) 100%);
+      opacity: 0;
+      transition: var(--transition);
+      z-index: 1;
+    }
+
+    .solution-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-heavy);
+      border-color: rgba(0, 212, 255, 0.3);
+    }
+
+    .solution-card:hover::before {
+      opacity: 1;
+    }
+
+    .solution-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .solution-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-lg);
+      font-size: 2rem;
+      color: var(--background-dark);
+    }
+
+    .solution-card h3 {
+      color: var(--text-primary);
+      margin-bottom: var(--space-md);
+    }
+
+    .solution-card p {
+      color: var(--text-secondary);
+      font-size: var(--text-base);
+    }
+
+    /* Features Section */
+    .features {
+      padding: var(--section-padding) 0;
+    }
+
+    .features-header {
+      text-align: center;
+      margin-bottom: var(--space-3xl);
+    }
+
+    .features-header h2 {
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+      gap: var(--space-xl);
+    }
+
+    .feature-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      padding: var(--space-2xl);
+      border-radius: var(--border-radius);
+      border: 1px solid var(--glass-border);
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-heavy);
+      border-color: rgba(0, 212, 255, 0.3);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-lg);
+      font-size: 1.5rem;
+      color: var(--background-dark);
+    }
+
+    /* CTA Section */
+    .cta {
+      padding: var(--section-padding) 0;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 153, 204, 0.1) 100%);
+    }
+
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta h2 {
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cta-button {
+      font-size: var(--text-lg);
+      padding: var(--space-md) var(--space-2xl);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Footer */
+    .footer {
+      padding: var(--space-3xl) 0;
+      background: rgba(0, 0, 0, 0.3);
+      border-top: 1px solid var(--border-color);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+      gap: var(--space-xl);
+    }
+
+    .footer-section h4 {
+      font-size: var(--text-lg);
+      font-weight: 600;
+      margin-bottom: var(--space-md);
+      color: var(--text-primary);
+    }
+
+    .footer-section a {
+      display: block;
+      color: var(--text-muted);
+      margin-bottom: var(--space-sm);
+      transition: var(--transition);
+      padding: var(--space-sm) 0;
+      text-decoration: none;
+    }
+
+    .footer-section a:hover {
+      color: var(--primary-color);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: var(--space-xl);
+      padding-top: var(--space-xl);
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 1200px) {
+      .solutions-grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      /* Mobile Navigation */
+      .mobile-menu-toggle {
+        display: flex;
+      }
+
+      .nav-desktop {
+        display: none;
+      }
+
+      /* Typography Adjustments */
+      h1 {
+        font-size: var(--text-4xl);
+      }
+
+      h2 {
+        font-size: var(--text-3xl);
+      }
+
+      /* Spacing Adjustments */
+      .hero {
+        padding: calc(70px + var(--space-xl)) 0 var(--space-xl);
+      }
+
+      .solutions-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      /* Extra Small Devices */
+      .container {
+        padding: 0 var(--space-md);
+      }
+
+      .solution-card {
+        padding: var(--space-xl);
+      }
+
+      .feature-card {
+        padding: var(--space-xl);
+      }
+
+      .cta-button {
+        padding: var(--space-md) var(--space-xl);
+        font-size: var(--text-base);
+      }
+    }
+
+    /* Touch Device Optimizations */
+    @media (hover: none) and (pointer: coarse) {
+      .solution-card:hover {
+        transform: none;
+      }
+
+      .feature-card:hover {
+        transform: none;
+      }
+
+      .cta-button:hover {
+        transform: none;
+      }
+
+      .btn-primary:hover {
+        transform: none;
+      }
+
+      /* Larger touch targets */
+      .nav-desktop a,
+      .mobile-nav a,
+      .footer-section a {
+        padding: var(--space-md) var(--space-lg);
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    /* High DPI Displays */
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      .logo {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+      }
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      .header,
+      .mobile-nav,
+      .btn-primary {
+        display: none;
+      }
+
+      body {
+        background: white;
+        color: black;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <img src="images/TIL-logo-new.png" alt="Toronto Innovation Lab Logo" class="logo">
+        <nav class="nav-desktop">
+          <a href="index.html">Home</a>
+          <a href="solutions.html">Solutions</a>
+          <a href="#enterprise">Enterprise</a>
+          <a href="#customers">Customers</a>
+          <a href="#resources">Resources</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#" class="btn-primary">Get started</a>
+          <a href="#">Sign in</a>
+        </nav>
+        <div class="mobile-menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="solutions.html">Solutions</a>
+    <a href="#enterprise">Enterprise</a>
+    <a href="#customers">Customers</a>
+    <a href="#resources">Resources</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#" class="btn-primary">Get started</a>
+    <a href="#">Sign in</a>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-subtitle">AI Automation Solutions</div>
+        <h1>Transform Your Business with Intelligent Automation</h1>
+        <p>Discover our cutting-edge AI solutions that streamline operations, enhance customer experiences, and drive unprecedented efficiency across your organization.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="solutions">
+    <div class="container">
+      <div class="solutions-header">
+        <h2>Our AI Automation Solutions</h2>
+        <p>From intelligent receptionists to advanced monitoring systems, our AI solutions are designed to revolutionize how your business operates.</p>
+      </div>
+      <div class="solutions-grid">
+        <div class="solution-card">
+          <div class="solution-content">
+            <div class="solution-icon">🤖</div>
+            <h3>AI Kiosk Automated Receptionist</h3>
+            <p>Revolutionize your front desk with intelligent kiosks that handle visitor check-ins, answer questions, and provide seamless customer service 24/7. Reduce wait times and enhance the customer experience.</p>
+          </div>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-content">
+            <div class="solution-icon">📞</div>
+            <h3>AI Phone Support Agent</h3>
+            <p>Deploy intelligent voice agents that handle customer calls, resolve issues, and provide support with natural conversation capabilities. Available around the clock to serve your customers.</p>
+          </div>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-content">
+            <div class="solution-icon">📋</div>
+            <h3>AI Quote Builder</h3>
+            <p>Automate your sales process with intelligent systems that gather information during live calls and automatically generate accurate quotes and referrals. Streamline your sales pipeline.</p>
+          </div>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-content">
+            <div class="solution-icon">📅</div>
+            <h3>AI Live Call Booking Agent</h3>
+            <p>Intelligent booking systems that conduct discovery calls, gather requirements, and automatically schedule appointments based on client needs and team availability. Never miss an opportunity.</p>
+          </div>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-content">
+            <div class="solution-icon">👁️</div>
+            <h3>AI Intelligent Computer Vision</h3>
+            <p>Advanced monitoring systems that use computer vision to analyze security footage, track inventory, monitor quality control, and provide real-time insights for operational optimization.</p>
+          </div>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-content">
+            <div class="solution-icon">🔍</div>
+            <h3>AI Monitoring System</h3>
+            <p>Comprehensive monitoring solutions that track system performance, detect anomalies, and provide predictive analytics to prevent issues before they impact your business operations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <div class="features-header">
+        <h2>Why Choose Our AI Solutions?</h2>
+        <p>Built with cutting-edge technology and designed for real-world business challenges.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Lightning Fast</h3>
+          <p>Deploy AI solutions in hours, not months. Our pre-built systems integrate seamlessly with your existing infrastructure.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>Enterprise Security</h3>
+          <p>Bank-grade security with SOC 2 compliance ensures your data and AI systems remain protected at all times.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Real-Time Analytics</h3>
+          <p>Monitor AI performance, track efficiency gains, and make data-driven decisions with comprehensive dashboards.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌐</div>
+          <h3>Scalable Solutions</h3>
+          <p>From startups to Fortune 500 companies, our AI platform scales with your business needs and growth trajectory.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>Custom Integration</h3>
+          <p>Tailored AI solutions that perfectly match your unique business processes and requirements.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔄</div>
+          <h3>Continuous Learning</h3>
+          <p>Our AI systems continuously learn and improve from interactions, becoming more effective over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Automate Your Business?</h2>
+        <p>Join the AI revolution and transform your operations with Toronto Innovation Lab's cutting-edge automation solutions.</p>
+        <a href="#" class="btn-primary cta-button">Start Your AI Journey</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h4>Product</h4>
+          <a href="#">Features</a>
+          <a href="#">Integrations</a>
+          <a href="#">Pricing</a>
+          <a href="#">API</a>
+        </div>
+        <div class="footer-section">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Careers</a>
+          <a href="#">Blog</a>
+          <a href="#">Press</a>
+        </div>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <a href="#">Help Center</a>
+          <a href="#">Contact</a>
+          <a href="#">Documentation</a>
+          <a href="#">Status</a>
+        </div>
+        <div class="footer-section">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+          <a href="#">GDPR</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Toronto Innovation Lab. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+    
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenuToggle.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+      document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Close mobile menu when clicking on links
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Add hover effects to solution cards
+    document.querySelectorAll('.solution-card').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-5px)';
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
+      });
+    });
+  </script>
+
+</body>
+</html> 
