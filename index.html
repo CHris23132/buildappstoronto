@@ -536,6 +536,84 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+    /* Testimonials Section */
+    .testimonials {
+      padding: var(--section-padding) 0;
+      background: rgba(255, 255, 255, 0.02);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: var(--space-3xl);
+    }
+
+    .testimonials-header h2 {
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+      gap: var(--space-xl);
+    }
+
+    .testimonial-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      padding: var(--space-2xl);
+      border-radius: var(--border-radius);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-heavy);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .testimonial-content {
+      margin-bottom: var(--space-lg);
+    }
+
+    .testimonial-stars {
+      margin-bottom: var(--space-sm);
+    }
+
+    .testimonial-stars span {
+      color: #ffd700;
+      font-size: var(--text-lg);
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--background-dark);
+    }
+
+    .author-info h4 {
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
     /* Footer */
     .footer {
       padding: var(--space-3xl) 0;
@@ -845,6 +923,118 @@
         <h2>Ready to Transform Your Business?</h2>
         <p>Join thousands of companies already automating their processes with Toronto Innovation Lab. Start your automation journey today.</p>
         <a href="#" class="btn-primary cta-button">Start Free Trial</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="container">
+      <div class="testimonials-header">
+        <h2>What Our Clients Say</h2>
+        <p>Real feedback from real clients who have experienced the power of our automation solutions.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="testimonial-stars">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p>"Chris Walsh truly impressed with exceptional mobile app development skills, EXCEEDING expectations through meticulous attention to detail and code expertise. Working with Chris was smooth and hassle-free, thanks to quick responsiveness and outstanding cooperation, ensuring timely delivery. 🙌"</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <span>KA</span>
+            </div>
+            <div class="author-info">
+              <h4>kurtaberle</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="testimonial-stars">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p>"Chris really shows attention to detail and treated this project like it was his own. I had many questions along the way and he always answered them to the detail. He takes the time to explain and explains it crystal clear, as someone who doesn't have a background in tech so much I have been able to learn from this process so far. He is very communicative and answers all questions that I have and continue to have. Working with him is a breeze, thanks to his deep understanding and proactive communication. Looking forward to a long term working-relationship with him 🙌"</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <span>EM</span>
+            </div>
+            <div class="author-info">
+              <h4>Eni Maj</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="testimonial-stars">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p>"Chris goes over and above the project requirements and brings ideas and insight to enhance each project. His energy and enthusiasm is inspiring and he is a pleasure to work with. Thanks for bringing your "A" game every time Chris!"</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <span>JM</span>
+            </div>
+            <div class="author-info">
+              <h4>John Malone</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="testimonial-stars">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p>"Chris went above and beyond, I highly recommend!"</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <span>VA</span>
+            </div>
+            <div class="author-info">
+              <h4>Victor Asooye</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="testimonial-stars">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p>"Chris did a great job building out my software that was by no means an easy concept. He had great communication and solved any issues that came up along the way. I am very pleased."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <span>BG</span>
+            </div>
+            <div class="author-info">
+              <h4>Bennett Geissler</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="testimonial-stars">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p>"Very happy to continue working with Chris!"</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <span>MW</span>
+            </div>
+            <div class="author-info">
+              <h4>Mati Weiss</h4>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
