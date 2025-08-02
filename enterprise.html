@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI Automation Solutions - Toronto Innovation Lab</title>
+  <title>Enterprise Solutions - Toronto Innovation Lab</title>
   <link rel="icon" type="image/png" href="FavIcon/favicon-Til-new.png">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <style>
@@ -269,7 +269,7 @@
 
     .hero-content {
       text-align: center;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
     }
 
@@ -287,42 +287,42 @@
     }
 
     .hero-subtitle::before {
-      content: '🤖';
+      content: '🏢';
       margin-right: var(--space-sm);
     }
 
-    /* Solutions Section */
-    .solutions {
+    /* Services Section */
+    .services {
       padding: var(--section-padding) 0;
       background: rgba(255, 255, 255, 0.02);
       border-top: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color);
     }
 
-    .solutions-header {
+    .services-header {
       text-align: center;
       margin-bottom: var(--space-3xl);
     }
 
-    .solutions-header h2 {
+    .services-header h2 {
       background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
-    .solutions-header p {
-      max-width: 600px;
+    .services-header p {
+      max-width: 700px;
       margin: 0 auto;
     }
 
-    .solutions-grid {
+    .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
       gap: var(--space-xl);
     }
 
-    .solution-card {
+    .service-card {
       background: var(--glass-bg);
       backdrop-filter: blur(20px);
       padding: var(--space-2xl);
@@ -335,7 +335,7 @@
       overflow: hidden;
     }
 
-    .solution-card::before {
+    .service-card::before {
       content: '';
       position: absolute;
       top: 0;
@@ -348,22 +348,22 @@
       z-index: 1;
     }
 
-    .solution-card:hover {
+    .service-card:hover {
       transform: translateY(-5px);
       box-shadow: var(--shadow-heavy);
       border-color: rgba(0, 212, 255, 0.3);
     }
 
-    .solution-card:hover::before {
+    .service-card:hover::before {
       opacity: 1;
     }
 
-    .solution-content {
+    .service-content {
       position: relative;
       z-index: 2;
     }
 
-    .solution-icon {
+    .service-icon {
       width: 80px;
       height: 80px;
       background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
@@ -376,40 +376,163 @@
       color: var(--background-dark);
     }
 
-    .solution-card h3 {
+    .service-card h3 {
       color: var(--text-primary);
       margin-bottom: var(--space-md);
     }
 
-    .solution-card p {
+    .service-card p {
       color: var(--text-secondary);
       font-size: var(--text-base);
     }
 
-    /* Features Section */
-    .features {
+    /* Custom Solutions Section */
+    .custom-solutions {
       padding: var(--section-padding) 0;
     }
 
-    .features-header {
+    .custom-solutions-header {
       text-align: center;
       margin-bottom: var(--space-3xl);
     }
 
-    .features-header h2 {
+    .custom-solutions-header h2 {
       background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
-    .features-grid {
+    .custom-solutions-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3xl);
+      align-items: center;
+    }
+
+    .custom-solutions-text {
+      max-width: 600px;
+    }
+
+    .custom-solutions-text h3 {
+      color: var(--text-primary);
+      margin-bottom: var(--space-lg);
+    }
+
+    .custom-solutions-text p {
+      color: var(--text-secondary);
+      margin-bottom: var(--space-lg);
+    }
+
+    .custom-solutions-features {
+      display: grid;
+      gap: var(--space-md);
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+    }
+
+    .feature-icon {
+      width: 24px;
+      height: 24px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .feature-icon::before {
+      content: '✓';
+      color: var(--background-dark);
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    .feature-text {
+      color: var(--text-secondary);
+    }
+
+    .custom-solutions-visual {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      padding: var(--space-2xl);
+      border-radius: var(--border-radius);
+      border: 1px solid var(--glass-border);
+      text-align: center;
+    }
+
+    .custom-solutions-visual h4 {
+      color: var(--text-primary);
+      margin-bottom: var(--space-lg);
+      font-size: var(--text-xl);
+    }
+
+    .process-steps {
+      display: grid;
+      gap: var(--space-lg);
+    }
+
+    .process-step {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      padding: var(--space-md);
+      background: rgba(0, 212, 255, 0.1);
+      border-radius: var(--border-radius-small);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: var(--background-dark);
+      flex-shrink: 0;
+    }
+
+    .step-text {
+      color: var(--text-secondary);
+      font-size: var(--text-sm);
+    }
+
+    /* Enterprise Benefits */
+    .benefits {
+      padding: var(--section-padding) 0;
+      background: rgba(255, 255, 255, 0.02);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .benefits-header {
+      text-align: center;
+      margin-bottom: var(--space-3xl);
+    }
+
+    .benefits-header h2 {
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .benefits-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
       gap: var(--space-xl);
     }
 
-    .feature-card {
+    .benefit-card {
       background: var(--glass-bg);
       backdrop-filter: blur(20px);
       padding: var(--space-2xl);
@@ -419,13 +542,13 @@
       text-align: center;
     }
 
-    .feature-card:hover {
+    .benefit-card:hover {
       transform: translateY(-3px);
       box-shadow: var(--shadow-heavy);
       border-color: rgba(0, 212, 255, 0.3);
     }
 
-    .feature-icon {
+    .benefit-icon {
       width: 60px;
       height: 60px;
       background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
@@ -506,8 +629,17 @@
 
     /* Responsive Breakpoints */
     @media (max-width: 1200px) {
-      .solutions-grid {
+      .services-grid {
         grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+      }
+
+      .custom-solutions-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+      }
+
+      .custom-solutions-text {
+        max-width: 100%;
       }
     }
 
@@ -535,11 +667,11 @@
         padding: calc(70px + var(--space-xl)) 0 var(--space-xl);
       }
 
-      .solutions-grid {
+      .services-grid {
         grid-template-columns: 1fr;
       }
 
-      .features-grid {
+      .benefits-grid {
         grid-template-columns: 1fr;
       }
 
@@ -555,11 +687,11 @@
         padding: 0 var(--space-md);
       }
 
-      .solution-card {
+      .service-card {
         padding: var(--space-xl);
       }
 
-      .feature-card {
+      .benefit-card {
         padding: var(--space-xl);
       }
 
@@ -571,11 +703,11 @@
 
     /* Touch Device Optimizations */
     @media (hover: none) and (pointer: coarse) {
-      .solution-card:hover {
+      .service-card:hover {
         transform: none;
       }
 
-      .feature-card:hover {
+      .benefit-card:hover {
         transform: none;
       }
 
@@ -669,107 +801,171 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <div class="hero-subtitle">AI Automation Solutions</div>
-        <h1>Transform Your Business with Intelligent Automation</h1>
-        <p>Discover our cutting-edge AI solutions that streamline operations, enhance customer experiences, and drive unprecedented efficiency across your organization.</p>
+        <div class="hero-subtitle">Enterprise Solutions</div>
+        <h1>Custom AI Solutions Built for Enterprise Scale</h1>
+        <p>From concept to deployment, we build complete custom AI automation solutions tailored to your enterprise needs. No off-the-shelf limitations – only bespoke solutions that transform your business operations.</p>
       </div>
     </div>
   </section>
 
-  <section class="solutions">
+  <section class="services">
     <div class="container">
-      <div class="solutions-header">
-        <h2>Our AI Automation Solutions</h2>
-        <p>From intelligent receptionists to advanced monitoring systems, our AI solutions are designed to revolutionize how your business operates.</p>
+      <div class="services-header">
+        <h2>Our Enterprise Services</h2>
+        <p>Comprehensive AI automation services designed to meet the complex demands of enterprise organizations.</p>
       </div>
-      <div class="solutions-grid">
-        <div class="solution-card">
-          <div class="solution-content">
-            <div class="solution-icon">🤖</div>
-            <h3>AI Kiosk Automated Receptionist</h3>
-            <p>Revolutionize your front desk with intelligent kiosks that handle visitor check-ins, answer questions, and provide seamless customer service 24/7. Reduce wait times and enhance the customer experience.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-content">
+            <div class="service-icon">🤖</div>
+            <h3>AI Kiosk Development</h3>
+            <p>Custom intelligent kiosks for visitor management, customer service, and automated check-ins. Built with advanced computer vision and natural language processing.</p>
           </div>
         </div>
 
-        <div class="solution-card">
-          <div class="solution-content">
-            <div class="solution-icon">📞</div>
-            <h3>AI Phone Support Agent</h3>
-            <p>Deploy intelligent voice agents that handle customer calls, resolve issues, and provide support with natural conversation capabilities. Available around the clock to serve your customers.</p>
+        <div class="service-card">
+          <div class="service-content">
+            <div class="service-icon">📞</div>
+            <h3>Voice AI Systems</h3>
+            <p>Enterprise-grade voice agents for customer support, sales calls, and internal communications. Integrated with your existing phone systems and CRM platforms.</p>
           </div>
         </div>
 
-        <div class="solution-card">
-          <div class="solution-content">
-            <div class="solution-icon">📋</div>
-            <h3>AI Quote Builder</h3>
-            <p>Automate your sales process with intelligent systems that gather information during live calls and automatically generate accurate quotes and referrals. Streamline your sales pipeline.</p>
+        <div class="service-card">
+          <div class="service-content">
+            <div class="service-icon">📋</div>
+            <h3>Sales Automation</h3>
+            <p>Intelligent quote generation, lead qualification, and sales process automation. Seamlessly integrated with your existing sales tools and workflows.</p>
           </div>
         </div>
 
-        <div class="solution-card">
-          <div class="solution-content">
-            <div class="solution-icon">📅</div>
-            <h3>AI Live Call Booking Agent</h3>
-            <p>Intelligent booking systems that conduct discovery calls, gather requirements, and automatically schedule appointments based on client needs and team availability. Never miss an opportunity.</p>
+        <div class="service-card">
+          <div class="service-content">
+            <div class="service-icon">📅</div>
+            <h3>Smart Scheduling</h3>
+            <p>AI-powered appointment booking systems with intelligent routing, conflict resolution, and calendar optimization for complex enterprise scheduling needs.</p>
           </div>
         </div>
 
-        <div class="solution-card">
-          <div class="solution-content">
-            <div class="solution-icon">👁️</div>
-            <h3>AI Intelligent Computer Vision</h3>
-            <p>Advanced monitoring systems that use computer vision to analyze security footage, track inventory, monitor quality control, and provide real-time insights for operational optimization.</p>
+        <div class="service-card">
+          <div class="service-content">
+            <div class="service-icon">👁️</div>
+            <h3>Computer Vision</h3>
+            <p>Advanced monitoring systems for security, quality control, inventory tracking, and operational analytics using cutting-edge computer vision technology.</p>
           </div>
         </div>
 
-        <div class="solution-card">
-          <div class="solution-content">
-            <div class="solution-icon">🔍</div>
-            <h3>AI Monitoring System</h3>
-            <p>Comprehensive monitoring solutions that track system performance, detect anomalies, and provide predictive analytics to prevent issues before they impact your business operations.</p>
+        <div class="service-card">
+          <div class="service-content">
+            <div class="service-icon">🔍</div>
+            <h3>Predictive Analytics</h3>
+            <p>Comprehensive monitoring and predictive analytics systems that identify patterns, detect anomalies, and provide actionable insights for business optimization.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="features">
+  <section class="custom-solutions">
     <div class="container">
-      <div class="features-header">
-        <h2>Why Choose Our AI Solutions?</h2>
-        <p>Built with cutting-edge technology and designed for real-world business challenges.</p>
+      <div class="custom-solutions-header">
+        <h2>Complete Custom Solutions from Scratch</h2>
+        <p>We don't just customize existing platforms – we build entirely new solutions tailored to your specific enterprise requirements.</p>
       </div>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">⚡</div>
-          <h3>Lightning Fast</h3>
-          <p>Deploy AI solutions in hours, not months. Our pre-built systems integrate seamlessly with your existing infrastructure.</p>
+      <div class="custom-solutions-content">
+        <div class="custom-solutions-text">
+          <h3>Bespoke AI Development</h3>
+          <p>Every enterprise has unique challenges and requirements. Our team of AI engineers, data scientists, and business analysts work together to design and build custom solutions that perfectly align with your business objectives.</p>
+          
+          <div class="custom-solutions-features">
+            <div class="feature-item">
+              <div class="feature-icon"></div>
+              <div class="feature-text">Complete custom development from the ground up</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"></div>
+              <div class="feature-text">Integration with existing enterprise systems and databases</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"></div>
+              <div class="feature-text">Scalable architecture designed for enterprise growth</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"></div>
+              <div class="feature-text">Comprehensive security and compliance features</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"></div>
+              <div class="feature-text">Ongoing support, maintenance, and system evolution</div>
+            </div>
+          </div>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">🔒</div>
+        
+        <div class="custom-solutions-visual">
+          <h4>Our Development Process</h4>
+          <div class="process-steps">
+            <div class="process-step">
+              <div class="step-number">1</div>
+              <div class="step-text">Discovery & Requirements Analysis</div>
+            </div>
+            <div class="process-step">
+              <div class="step-number">2</div>
+              <div class="step-text">Custom Architecture Design</div>
+            </div>
+            <div class="process-step">
+              <div class="step-number">3</div>
+              <div class="step-text">AI Model Development & Training</div>
+            </div>
+            <div class="process-step">
+              <div class="step-number">4</div>
+              <div class="step-text">System Integration & Testing</div>
+            </div>
+            <div class="process-step">
+              <div class="step-number">5</div>
+              <div class="step-text">Deployment & Ongoing Support</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="benefits">
+    <div class="container">
+      <div class="benefits-header">
+        <h2>Why Enterprise Choose Custom Solutions</h2>
+        <p>Built specifically for your business, not adapted from generic templates.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">🎯</div>
+          <h3>Perfect Fit</h3>
+          <p>Solutions designed around your specific business processes, not the other way around.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🔒</div>
           <h3>Enterprise Security</h3>
-          <p>Bank-grade security with SOC 2 compliance ensures your data and AI systems remain protected at all times.</p>
+          <p>Bank-grade security with SOC 2 compliance, data encryption, and enterprise authentication.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">📊</div>
-          <h3>Real-Time Analytics</h3>
-          <p>Monitor AI performance, track efficiency gains, and make data-driven decisions with comprehensive dashboards.</p>
+        <div class="benefit-card">
+          <div class="benefit-icon">📈</div>
+          <h3>Scalable Architecture</h3>
+          <p>Built to grow with your business, handling increased load and complexity seamlessly.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">🌐</div>
-          <h3>Scalable Solutions</h3>
-          <p>From startups to Fortune 500 companies, our AI platform scales with your business needs and growth trajectory.</p>
+        <div class="benefit-card">
+          <div class="benefit-icon">🔗</div>
+          <h3>Seamless Integration</h3>
+          <p>Integrates with your existing ERP, CRM, and business systems without disruption.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">🎯</div>
-          <h3>Custom Integration</h3>
-          <p>Tailored AI solutions that perfectly match your unique business processes and requirements.</p>
+        <div class="benefit-card">
+          <div class="benefit-icon">📊</div>
+          <h3>Advanced Analytics</h3>
+          <p>Comprehensive reporting and analytics tailored to your business metrics and KPIs.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">🔄</div>
-          <h3>Continuous Learning</h3>
-          <p>Our AI systems continuously learn and improve from interactions, becoming more effective over time.</p>
+        <div class="benefit-card">
+          <div class="benefit-icon">🛠️</div>
+          <h3>Ongoing Support</h3>
+          <p>Dedicated support team and continuous system evolution to meet changing needs.</p>
         </div>
       </div>
     </div>
@@ -778,9 +974,9 @@
   <section class="cta">
     <div class="container">
       <div class="cta-content">
-        <h2>Ready to Automate Your Business?</h2>
-        <p>Join the AI revolution and transform your operations with Toronto Innovation Lab's cutting-edge automation solutions.</p>
-        <a href="#" class="btn-primary cta-button">Start Your AI Journey</a>
+        <h2>Ready to Build Your Custom AI Solution?</h2>
+        <p>Let's discuss your enterprise requirements and build a custom AI automation solution that transforms your business operations.</p>
+        <a href="#" class="btn-primary cta-button">Schedule Enterprise Consultation</a>
       </div>
     </div>
   </section>
@@ -843,8 +1039,8 @@
       });
     });
 
-    // Add hover effects to solution cards
-    document.querySelectorAll('.solution-card').forEach(card => {
+    // Add hover effects to service cards
+    document.querySelectorAll('.service-card').forEach(card => {
       card.addEventListener('mouseenter', () => {
         card.style.transform = 'translateY(-5px)';
       });
